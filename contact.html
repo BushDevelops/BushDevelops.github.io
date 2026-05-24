@@ -47,7 +47,7 @@
             font-family: Arial, sans-serif;
             resize: none;
             box-sizing: border-box;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
         textarea:focus {
             outline: none;
@@ -63,14 +63,20 @@
             font-weight: bold;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 15px;
         }
         button:hover {
             background-color: #e0006c;
         }
+        button:disabled {
+            background-color: #444;
+            color: #888;
+            cursor: not-allowed;
+        }
         .back-link {
             display: block;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
             color: #666;
             text-decoration: none;
             font-size: 13px;
@@ -78,26 +84,45 @@
         .back-link:hover {
             color: #999;
         }
+        /* Formspree Status Message Styling */
+        [data-fs-success] {
+            color: #00adb5;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        [data-fs-error] {
+            color: #cc0000;
+            font-size: 13px;
+            margin-bottom: 10px;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Contact BushDev</h1>
-        <div class="subtitle">Leave a message, idea, or feedback.</div>
+        <h1>Anonymous Drop Box</h1>
+        <div class="subtitle">Leave a message, idea, or feedback. No identity required.</div>
         
-        <form action="https://formsubmit.co/BushSlaps@outlook.com" method="POST">
-            
-            <input type="hidden" name="_next" value="https://bushdevelops.github.io/contact.html">
-            <input type="hidden" name="_captcha" value="false">
+        <div data-fs-success></div>
+        <div data-fs-error></div>
 
-            <textarea name="message" placeholder="Type your message here..." required></textarea>
+        <form id="contact-form">
+            <textarea id="message" name="message" placeholder="Type your message here..." data-fs-field required></textarea>
+            <span data-fs-error="message"></span>
             
-            <button type="submit">Submit Message</button>
+            <button type="submit" data-fs-submit-btn>Submit Message</button>
         </form>
 
         <a class="back-link" href="/"><- Return Hub</a>
     </div>
+
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'mdajlkql' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
