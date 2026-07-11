@@ -48,12 +48,6 @@
             color: #ffd43b;
             margin-bottom: 5px;
         }
-        .loading-text {
-            text-align: center;
-            grid-column: 1 / -1;
-            font-size: 1.2rem;
-            color: #a1a1aa;
-        }
     </style>
 </head>
 <body>
@@ -64,11 +58,14 @@
     </header>
 
     <main class="database-grid" id="database-grid">
-        <div class="loading-text" id="status-message">Connecting to bot database...</div>
+        <div id="status-message" style="text-align: center; grid-column: 1 / -1; color: #a1a1aa; font-size: 1.2rem;">
+            Connecting to bot database...
+        </div>
     </main>
 
     <script>
-        const BOT_API_URL = "https://YOUR-APP-NAME.justrunmy.app/api/reports";
+        // Connected directly to your live Render API link
+        const BOT_API_URL = "https://aim-bot-if6s.onrender.com/api/reports";
 
         async function loadReports() {
             const grid = document.getElementById("database-grid");
@@ -77,20 +74,22 @@
             try {
                 const response = await fetch(BOT_API_URL);
                 const reports = await response.json();
-                
+
+                // Clear out the loading status placeholder text
                 grid.innerHTML = "";
 
                 if (reports.length === 0) {
-                    grid.innerHTML = `<div class="loading-text">No approved reports found in the database yet!</div>`;
+                    grid.innerHTML = `<div style="text-align: center; grid-column: 1 / -1; color: #a1a1aa; font-size: 1.2rem;">No approved reports found in the database yet!</div>`;
                     return;
                 }
-                
+
+                // Create cards automatically for each item found in your bot's database logs
                 reports.forEach(report => {
                     const card = document.createElement("div");
                     card.className = "report-card";
                     card.innerHTML = `
                         <div class="username">${report.username}</div>
-                        <p>Reason: ${report.reason}</p>
+                        <p style="color: #a1a1aa; margin: 8px 0;">Reason: ${report.reason}</p>
                         <img src="${report.image_url}" alt="Evidence Screenshot">
                     `;
                     grid.appendChild(card);
@@ -98,10 +97,11 @@
 
             } catch (error) {
                 console.error("Failed to load reports:", error);
-                statusMessage.innerText = "❌ gng the database is fried its over...";
+                statusMessage.innerText = "❌ Could not connect to the bot database. Ensure the bot application is fully deployed and running.";
             }
         }
 
+        // Run the fetch operation immediately when the visitor opens the page
         loadReports();
     </script>
 
