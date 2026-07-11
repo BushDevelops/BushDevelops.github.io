@@ -48,32 +48,62 @@
             color: #ffd43b;
             margin-bottom: 5px;
         }
+        .loading-text {
+            text-align: center;
+            grid-column: 1 / -1;
+            font-size: 1.2rem;
+            color: #a1a1aa;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Anti-Innersloth movement</h1>
-        <p>For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists
-, and pedophiles
- sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. </p>
+        <p>For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists, and pedophiles sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years.</p>
     </header>
 
-    <main class="database-grid">
-        
-        <div class="report-card">
-            <div class="username">ImpostorSus99</div>
-            <p>Reason: Cheating / Wall hacking</p>
-            <img src="https://placehold.co/600x400/2a2a30/ffffff?text=Screenshot+Placeholder" alt="Evidence">
-        </div>
-
-        <div class="report-card">
-            <div class="username">RedIsFake</div>
-            <p>Reason: Toxic lobby behavior</p>
-            <img src="https://placehold.co/600x400/2a2a30/ffffff?text=Screenshot+Placeholder" alt="Evidence">
-        </div>
-
+    <main class="database-grid" id="database-grid">
+        <div class="loading-text" id="status-message">Connecting to bot database...</div>
     </main>
+
+    <script>
+        const BOT_API_URL = "https://YOUR-APP-NAME.justrunmy.app/api/reports";
+
+        async function loadReports() {
+            const grid = document.getElementById("database-grid");
+            const statusMessage = document.getElementById("status-message");
+
+            try {
+                const response = await fetch(BOT_API_URL);
+                const reports = await response.json();
+                
+                grid.innerHTML = "";
+
+                if (reports.length === 0) {
+                    grid.innerHTML = `<div class="loading-text">No approved reports found in the database yet!</div>`;
+                    return;
+                }
+                
+                reports.forEach(report => {
+                    const card = document.createElement("div");
+                    card.className = "report-card";
+                    card.innerHTML = `
+                        <div class="username">${report.username}</div>
+                        <p>Reason: ${report.reason}</p>
+                        <img src="${report.image_url}" alt="Evidence Screenshot">
+                    `;
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Failed to load reports:", error);
+                statusMessage.innerText = "❌ Could not connect to the bot database. Ensure the bot application is fully deployed and running.";
+            }
+        }
+
+        loadReports();
+    </script>
 
 </body>
 </html>
