@@ -129,8 +129,8 @@
     </main>
 
     <script>
-        // Replace with your exact Render domain if serving statically elsewhere
-        const API_ENDPOINT = '/api/reports'; 
+        // Pointing directly to your backend domain to avoid absolute path drops
+        const API_ENDPOINT = 'https://aim-bot-if6s.onrender.com/api/reports'; 
 
         async function loadGallery() {
             const galleryContainer = document.getElementById('gallery');
@@ -140,7 +140,7 @@
                 if (!response.ok) throw new Error('Network response failure');
                 
                 const data = await response.json();
-                galleryContainer.innerHTML = ''; // Clear out loader
+                galleryContainer.innerHTML = ''; 
 
                 if (data.length === 0) {
                     galleryContainer.innerHTML = '<div class="loading">No archival entries found in channel history.</div>';
@@ -148,20 +148,18 @@
                 }
 
                 data.forEach(item => {
-                    // 1. Establish data hooks using multiple properties to bypass undefined
                     let name = item.name || item.title || "Anonymous Submission";
                     let reason = item.reason || item.category || "General Context";
                     let imgUrl = item.image || item.imageUrl || item.src || "";
 
-                    // 2. Fallback parsing directly via content split if direct keys miss
+                    // Extract values if processing fallback strings directly
                     if ((name === "Anonymous Submission" || !imgUrl) && item.content) {
                         const parts = item.content.split('::');
-                        if (parts.length > 1) name = parts[1].strip ? parts[1].strip() : parts[1];
-                        if (parts.length > 2) reason = parts[2].strip ? parts[2].strip() : parts[2];
-                        if (parts.length > 3) imgUrl = parts[3].strip ? parts[3].strip() : parts[3];
+                        if (parts.length > 1) name = parts[1].trim();
+                        if (parts.length > 2) reason = parts[2].trim();
+                        if (parts.length > 3) imgUrl = parts[3].trim();
                     }
 
-                    // 3. Create DOM layout structures dynamically
                     const card = document.createElement('div');
                     card.className = 'card';
 
@@ -177,12 +175,11 @@
                     imgContainer.className = 'image-container';
 
                     const img = document.createElement('img');
-                    // CRITICAL SECURITY HEADER: Prevents Discord from rejecting cross-site referrers
+                    // Instructs the browser to bypass sending referrers to prevent discord image bans
                     img.referrerPolicy = 'no-referrer'; 
                     img.src = imgUrl;
                     img.alt = 'Database Asset';
                     
-                    // Failover image display handling
                     img.onerror = () => {
                         img.alt = '⚠️ Failed to display image context link';
                         img.style.padding = '1rem';
@@ -203,7 +200,6 @@
             }
         }
 
-        // Initialize script execution on page startup
         window.addEventListener('DOMContentLoaded', loadGallery);
     </script>
 </body>
