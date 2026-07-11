@@ -19,6 +19,7 @@
             --text-secondary: #a0a0aa;
             --accent-color: #ffffff;
             --border-color: #2a2a30;
+            --success-color: #39ff14; 
         }
 
         * {
@@ -40,11 +41,13 @@
         header {
             margin-bottom: 2.5rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* NEW HEADER IMAGE STYLE */
         .header-logo {
-            max-width: 180px;  /* Change this to resize your top image */
+            max-width: 180px;
             width: 100%;
             height: auto;
             margin-bottom: 1.2rem;
@@ -62,6 +65,26 @@
             color: var(--text-secondary);
             font-size: 1.2rem;
             letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        /* LIVE ARCADE-STYLE MEME COUNTER BADGE */
+        .counter-badge {
+            background-color: #0b0b0c;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            font-size: 1.1rem;
+            color: var(--success-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        .counter-badge span {
+            font-weight: bold;
+            color: var(--text-primary);
         }
 
         .gallery-grid {
@@ -141,10 +164,15 @@
 
     <header>
         <img src="top-banner.png" alt="Pipeline Logo" class="header-logo">
-        <h1>Anti-Innersloth Movement (AIM)</h1>
+        <h1>Anti-Innersloth Movement [AIM]</h1>
         <p>For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists
 , and pedophiles
- sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. Join our community here: https://discord.gg/H2hx84Qqx </p>
+ sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. 
+</p>
+        
+        <div class="counter-badge" id="archive-counter">
+            Assets Secured: <span id="count-number">000</span>
+        </div>
     </header>
 
     <main class="gallery-grid" id="gallery">
@@ -157,6 +185,8 @@
 
         async function loadGallery() {
             const galleryContainer = document.getElementById('gallery');
+            const countNumber = document.getElementById('count-number');
+            const counterBadge = document.getElementById('archive-counter');
             
             try {
                 const response = await fetch(API_ENDPOINT);
@@ -165,8 +195,12 @@
                 const data = await response.json();
                 galleryContainer.innerHTML = ''; 
 
+                // UPDATE THE LIVE COUNTER WITH THE ARRAY SIZE
+                countNumber.textContent = data.length.toString().padStart(3, '0');
+                counterBadge.style.borderColor = 'var(--success-color)';
+
                 if (data.length === 0) {
-                    galleryContainer.innerHTML = '<div class="loading">No logs found.</div>';
+                    galleryContainer.innerHTML = '<div class="loading">No records found, contact the owner if you are seeing this message.</div>';
                     return;
                 }
 
@@ -220,8 +254,11 @@
                 });
 
             } catch (error) {
-                console.error('Gallery initialization failed:', error);
-                galleryContainer.innerHTML = `<div class="error-msg">❌ Unable to connect to backend server endpoint pipeline.</div>`;
+                console.error('fuck slow ass servers:', error);
+                galleryContainer.innerHTML = `<div class="error-msg">❌ Servers are FRIED... its ggs.</div>`;
+                countNumber.textContent = "ERR";
+                counterBadge.style.color = '#ff6b6b';
+                counterBadge.style.borderColor = '#ff6b6b';
             }
         }
 
