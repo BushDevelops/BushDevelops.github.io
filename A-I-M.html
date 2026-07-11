@@ -8,9 +8,9 @@
         :root {
             --bg-main: #121214;
             --bg-card: #1a1a1e;
-            --text-primary: #f0f0f5;
+            --text-primary: #ffffff;
             --text-secondary: #a0a0aa;
-            --accent-color: #ffd700;
+            --accent-color: #ff0000;
             --border-color: #2a2a30;
         }
 
@@ -181,7 +181,7 @@
                     img.alt = 'Database Asset';
                     
                     img.onerror = () => {
-                        img.alt = '⚠️ Failed to display image context link';
+                        img.alt = '⚠️ Failed to show image';
                         img.style.padding = '1rem';
                         img.style.color = '#ff6b6b';
                     };
@@ -196,7 +196,7 @@
 
             } catch (error) {
                 console.error('Gallery initialization failed:', error);
-                galleryContainer.innerHTML = `<div class="error-msg">❌ Unable to connect to backend server endpoint pipeline.</div>`;
+                galleryContainer.innerHTML = `<div class="error-msg">❌ Servers are FRIED.</div>`;
             }
         }
 
