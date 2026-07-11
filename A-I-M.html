@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Gallery Pipeline</title>
+    <title>Anti-Innersloth Movement (AIM)</title>
     <style>
-        /* PERFECTLY SYNCHRONIZED WITH YOUR RENAMED TTF FILE */
         @font-face {
             font-family: 'NintendoU';
             src: url('nintendo_u.ttf') format('truetype');
@@ -132,12 +131,14 @@
 <body>
 
     <header>
-        <h1>Meme Pipeline Dashboard</h1>
-        <p>Live synchronized archival tracking storage database</p>
+        <h1>Anti-Innersloth Movement</h1>
+        <p>For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists
+, and pedophiles
+ sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. </p>
     </header>
 
     <main class="gallery-grid" id="gallery">
-        <div class="loading">Loading assets from pipeline backend...</div>
+        <div class="loading">Loading assets...</div>
     </main>
 
     <script>
@@ -196,7 +197,7 @@
                     img.alt = 'Database Asset';
                     
                     img.onerror = () => {
-                        img.alt = '⚠️ Failed to display image context link';
+                        img.alt = '⚠️ An error occured: Image does not exist or has expired.';
                         img.style.padding = '1rem';
                         img.style.color = '#ff6b6b';
                     };
@@ -211,7 +212,7 @@
 
             } catch (error) {
                 console.error('Gallery initialization failed:', error);
-                galleryContainer.innerHTML = `<div class="error-msg">❌ Unable to connect to backend server endpoint pipeline.</div>`;
+                galleryContainer.innerHTML = `<div class="error-msg">❌ Servers are FRIED...</div>`;
             }
         }
 
