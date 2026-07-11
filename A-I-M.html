@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Gallery Pipeline</title>
     <style>
+        /* PERFECTLY SYNCHRONIZED WITH YOUR RENAMED TTF FILE */
+        @font-face {
+            font-family: 'NintendoU';
+            src: url('nintendo_u.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --bg-main: #121214;
             --bg-card: #1a1a1e;
-            --text-primary: #ffffff;
+            --text-primary: #f0f0f5;
             --text-secondary: #a0a0aa;
-            --accent-color: #ff0000;
+            --accent-color: #ffd700;
             --border-color: #2a2a30;
         }
 
@@ -22,7 +30,7 @@
 
         body {
             background-color: var(--bg-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'NintendoU', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
             padding: 2rem;
             display: flex;
@@ -36,15 +44,16 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.5px;
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
         }
 
         .gallery-grid {
@@ -74,18 +83,20 @@
         }
 
         .card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: bold;
             color: var(--accent-color);
             text-align: center;
             word-break: break-word;
+            letter-spacing: 0.5px;
         }
 
         .card-reason {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             text-align: center;
             word-break: break-word;
+            letter-spacing: 0.5px;
         }
 
         .image-container {
@@ -109,11 +120,12 @@
         }
 
         .loading, .error-msg {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             grid-column: 1 / -1;
             text-align: center;
             padding: 3rem;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -129,8 +141,8 @@
     </main>
 
     <script>
-        // Pointing directly to your backend domain to avoid absolute path drops
-        const API_ENDPOINT = 'https://aim-bot-if6s.onrender.com/api/reports'; 
+        const BASE_SERVER = 'https://aim-bot-if6s.onrender.com';
+        const API_ENDPOINT = `${BASE_SERVER}/api/reports`; 
 
         async function loadGallery() {
             const galleryContainer = document.getElementById('gallery');
@@ -152,12 +164,16 @@
                     let reason = item.reason || item.category || "General Context";
                     let imgUrl = item.image || item.imageUrl || item.src || "";
 
-                    // Extract values if processing fallback strings directly
                     if ((name === "Anonymous Submission" || !imgUrl) && item.content) {
                         const parts = item.content.split('::');
                         if (parts.length > 1) name = parts[1].trim();
                         if (parts.length > 2) reason = parts[2].trim();
                         if (parts.length > 3) imgUrl = parts[3].trim();
+                    }
+
+                    // Prepend backend domain if images are locally hosted on Render
+                    if (imgUrl.startsWith('/images/')) {
+                        imgUrl = `${BASE_SERVER}${imgUrl}`;
                     }
 
                     const card = document.createElement('div');
@@ -175,13 +191,12 @@
                     imgContainer.className = 'image-container';
 
                     const img = document.createElement('img');
-                    // Instructs the browser to bypass sending referrers to prevent discord image bans
                     img.referrerPolicy = 'no-referrer'; 
                     img.src = imgUrl;
                     img.alt = 'Database Asset';
                     
                     img.onerror = () => {
-                        img.alt = '⚠️ Failed to show image';
+                        img.alt = '⚠️ Failed to display image context link';
                         img.style.padding = '1rem';
                         img.style.color = '#ff6b6b';
                     };
@@ -196,7 +211,7 @@
 
             } catch (error) {
                 console.error('Gallery initialization failed:', error);
-                galleryContainer.innerHTML = `<div class="error-msg">❌ Servers are FRIED.</div>`;
+                galleryContainer.innerHTML = `<div class="error-msg">❌ Unable to connect to backend server endpoint pipeline.</div>`;
             }
         }
 
