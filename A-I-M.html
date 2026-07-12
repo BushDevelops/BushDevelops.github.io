@@ -5,193 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-I-M</title>
     <style>
-        @font-face {
-            font-family: 'NintendoFont';
-            src: url('nintendo_u.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+      @font-face {
+    font-family: 'NintendoFont';
+    src: url('nintendo_u.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f0f11;
-            color: #ffffff;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f0f11;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .header-section {
-            text-align: center;
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 1200px;
-        }
+.header-section {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 1200px;
+}
 
-        .banner-img {
-            max-width: 200px;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
+.banner-img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 
-        h1 {
-            font-family: 'NintendoFont', sans-serif;
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+h1 {
+    font-family: 'NintendoFont', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
-        .subtitle {
-            color: #a0a0b0;
-            font-size: 1.1rem;
-            margin: 10px 0 20px 0;
-            font-weight: bold;
-        }
+.subtitle {
+    color: #a0a0b0;
+    font-size: 0.95rem;
+    margin: 8px 0 15px 0;
+    font-weight: bold;
+}
 
-        .counter-badge {
-            display: inline-block;
-            border: 2px solid #00ff00;
-            border-radius: 25px;
-            padding: 8px 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            background-color: #000000;
-        }
+.counter-badge {
+    display: inline-block;
+    border: 2px solid #00ff00;
+    border-radius: 25px;
+    padding: 6px 16px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    background-color: #000000;
+}
 
-        .counter-label {
-            color: #00ff00;
-        }
+.counter-label {
+    color: #00ff00;
+}
 
-        .counter-number {
-            color: #ffffff;
-        }
+.counter-number {
+    color: #ffffff;
+}
 
 .meme-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 15px;
-        }
+    display: grid;
+    /* Forces exactly 3 equal columns maximum on wide screens, wraps nicely on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    max-width: 800px; /* Constrains total grid width so a 4th card can't fit */
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
 
-        .meme-card {
-            background-color: #1a1a1c;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+.meme-card {
+    background-color: #1a1a1c;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
 
-        .meme-card h2 {
-            font-family: 'NintendoFont', sans-serif;
-            margin: 0;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-        }
+.meme-card h2 {
+    font-family: 'NintendoFont', sans-serif;
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    /* Forces titles to wrap cleanly within the border */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
 
-        .meme-card p.reason {
-            color: #888888;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 6px 0 12px 0;
-        }
+.meme-card p.reason {
+    color: #888888;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin: 6px 0 12px 0;
+    /* Forces reason text to stay bounded inside the card border */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+}
 
-        .meme-image-wrapper {
-            background-color: #0a0a0a;
-            border-radius: 6px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: #ff5555;
-            font-weight: bold;
-            font-size: 0.85rem;
-            width: 100%;
-        }
+.meme-image-wrapper {
+    background-color: #0a0a0a;
+    border-radius: 6px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #ff5555;
+    font-weight: bold;
+    font-size: 0.85rem;
+    width: 100%;
+}
 
-        .meme-image-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-        .pagination {
-            margin: 40px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
+.meme-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
 
-        .pagination button {
-            color: #fff;
-            background-color: #5865F2;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+.pagination {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
 
-        .pagination button:hover {
-            background-color: #4752C4;
-        }
+.pagination button {
+    color: #fff;
+    background-color: #5865F2;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
 
-        .pagination button:disabled {
-            background-color: #2a2a2a;
-            color: #666;
-            cursor: not-allowed;
-        }
+.pagination button:hover {
+    background-color: #4752C4;
+}
 
-        .pagination span {
-            font-size: 1rem;
-            color: #aaa;
-            font-weight: bold;
-        }
+.pagination button:disabled {
+    background-color: #2a2a2a;
+    color: #666;
+    cursor: not-allowed;
+}
 
-        footer {
-            margin-top: 20px;
-            padding: 30px 0;
-            width: 100%;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
+.pagination span {
+    font-size: 0.9rem;
+    color: #aaa;
+    font-weight: bold;
+}
 
-        .discord-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #5865F2;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #222;
+}
 
-        .discord-btn:hover {
-            background-color: #4752C4;
-        }
+.discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #5865F2;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
 
-        .discord-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
+.discord-btn:hover {
+    background-color: #4752C4;
+}
+
+.discord-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
     </style>
 </head>
 <body>
