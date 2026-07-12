@@ -6,263 +6,225 @@
     <title>A-I-M</title>
     <style>
         @font-face {
-            font-family: 'NintendoU';
+            font-family: 'NintendoFont';
             src: url('nintendo_u.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        :root {
-            --bg-main: #121214;
-            --bg-card: #1a1a1e;
-            --text-primary: #f0f0f5;
-            --text-secondary: #a0a0aa;
-            --accent-color: #ffffff;
-            --border-color: #2a2a30;
-            --success-color: #39ff14; 
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            background-color: var(--bg-main);
-            font-family: 'NintendoU', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-primary);
-            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f11;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header {
-            margin-bottom: 2.5rem;
+        .header-section {
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 600px;
         }
 
-        .header-logo {
-            max-width: 180px;
+        .banner-img {
             width: 100%;
             height: auto;
-            margin-bottom: 1.2rem;
-            display: inline-block;
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        header p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-
-        /* LIVE ARCADE-STYLE MEME COUNTER BADGE */
-        .counter-badge {
-            background-color: #0b0b0c;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            padding: 0.5rem 1.5rem;
-            font-size: 1.1rem;
-            color: var(--success-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
-            transition: border-color 0.3s ease;
-        }
-
-        .counter-badge span {
-            font-weight: bold;
-            color: var(--text-primary);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'NintendoFont', sans-serif;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #a0a0b0;
+            font-size: 1.1rem;
+            margin: 10px 0 20px 0;
+            font-weight: bold;
+        }
+
+        .counter-badge {
+            display: inline-block;
+            border: 2px solid #00ff00;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background-color: #000000;
+        }
+
+        .counter-label {
+            color: #00ff00;
+        }
+
+        .counter-number {
+            color: #ffffff;
+        }
+
+        .meme-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-align: center;
-            word-break: break-word;
-            letter-spacing: 0.5px;
-        }
-
-        .card-reason {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            text-align: center;
-            word-break: break-word;
-            letter-spacing: 0.5px;
-        }
-
-        .image-container {
+            gap: 30px;
             width: 100%;
+            max-width: 600px;
+        }
+
+        .meme-card {
+            background-color: #1a1a1c;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .meme-card h2 {
+            font-family: 'NintendoFont', sans-serif;
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .meme-card p.reason {
+            color: #888888;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px 0 20px 0;
+        }
+
+        .meme-image-wrapper {
+            background-color: #0a0a0a;
             border-radius: 8px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            background-color: #0b0b0c;
+            color: #ff5555;
+            font-weight: bold;
+        }
+
+        .meme-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .pagination {
+            margin: 40px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 200px;
-            border: 1px solid #222;
+            gap: 15px;
         }
 
-        .image-container img {
+        .pagination a {
+            color: #fff;
+            background-color: #5865F2;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .pagination a:hover {
+            background-color: #4752C4;
+        }
+
+        .pagination a.disabled {
+            background-color: #2a2a2a;
+            color: #666;
+            pointer-events: none;
+        }
+
+        .pagination span {
+            font-size: 1rem;
+            color: #aaa;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 30px 0;
             width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-            display: block;
+            text-align: center;
+            border-top: 1px solid #222;
         }
 
-        .loading, .error-msg {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem;
-            letter-spacing: 0.5px;
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+        }
+
+        .discord-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="top-banner.png" alt="Pipeline Logo" class="header-logo">
-        <h1>Anti-Innersloth Movement (AIM)</h1>
-        <p>For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists
-, and pedophiles
- sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. 
-</p>
+    <div class="header-section">
+        <img src="top-banner.png" alt="Meme Archive Banner" class="banner-img">
+        <h1>Anti-Innersloth Movement</h1>
+        <p class="subtitle">For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists , and pedophiles sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. This website is not affiliated with Innersloth or Among Us.</p>
         
-        <div class="counter-badge" id="archive-counter">
-            Logged daters: <span id="count-number">000</span>
+        <div class="counter-badge">
+            <span class="counter-label">LOGGED DATERS:</span> 
+            <span class="counter-number">{{ total_count | default('000') }}</span>
         </div>
-    </header>
+    </div>
 
-    <main class="gallery-grid" id="gallery">
-        <div class="loading">Loading assets...</div>
-    </main>
-
-    <script>
-        const BASE_SERVER = 'https://aim-bot-if6s.onrender.com';
-        const API_ENDPOINT = `${BASE_SERVER}/api/reports`; 
-
-        async function loadGallery() {
-            const galleryContainer = document.getElementById('gallery');
-            const countNumber = document.getElementById('count-number');
-            const counterBadge = document.getElementById('archive-counter');
+    <div class="meme-container">
+        {% for meme in memes %}
+        <div class="meme-card">
+            <h2>{{ meme.name }}</h2>
+            <p class="reason">Reason: {{ meme.reason }}</p>
             
-            try {
-                const response = await fetch(API_ENDPOINT);
-                if (!response.ok) throw new Error('Network response failure');
-                
-                const data = await response.json();
-                galleryContainer.innerHTML = ''; 
+            <div class="meme-image-wrapper">
+                <img src="{{ meme.image_url }}" alt="Failed to display image">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-                // UPDATE THE LIVE COUNTER WITH THE ARRAY SIZE
-                countNumber.textContent = data.length.toString().padStart(3, '0');
-                counterBadge.style.borderColor = 'var(--success-color)';
+    <div class="pagination">
+        <a href="?page={{ current_page - 1 }}" class="{% if current_page <= 1 %}disabled{% endif %}">Previous</a>
+        <span>Page {{ current_page }} of {{ total_pages }}</span>
+        <a href="?page={{ current_page + 1 }}" class="{% if current_page >= total_pages %}disabled{% endif %}">Next</a>
+    </div>
 
-                if (data.length === 0) {
-                    galleryContainer.innerHTML = '<div class="loading">No records found, contact the owner if you are seeing this message.</div>';
-                    return;
-                }
+    <footer>
+        <p style="color: #aaa; margin-bottom: 15px; font-weight: bold;">Want to support or contact us??</p>
+        <a href="https://discord.gg/CzdNrWA465" target="_blank" class="discord-btn">
+            <svg class="discord-icon" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.66-10.85,68.43,68.43,0,0,1-10.5-5c.88-.65,1.72-1.33,2.53-2A75.52,75.52,0,0,0,96.48,78.5a68.43,68.43,0,0,1-10.5,5,74.37,74.37,0,0,0,6.66,10.85,105.73,105.73,0,0,0,31.06-18.83C129.93,50.55,123.93,27.78,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z"/>
+            </svg>
+            Join Our Discord
+        </a>
+    </footer>
 
-                data.forEach(item => {
-                    let name = item.name || item.title || "Anonymous Submission";
-                    let reason = item.reason || item.category || "General Context";
-                    let imgUrl = item.image || item.imageUrl || item.src || "";
-
-                    if ((name === "Anonymous Submission" || !imgUrl) && item.content) {
-                        const parts = item.content.split('::');
-                        if (parts.length > 1) name = parts[1].trim();
-                        if (parts.length > 2) reason = parts[2].trim();
-                        if (parts.length > 3) imgUrl = parts[3].trim();
-                    }
-
-                    if (imgUrl.startsWith('/images/')) {
-                        imgUrl = `${BASE_SERVER}${imgUrl}`;
-                    }
-
-                    const card = document.createElement('div');
-                    card.className = 'card';
-
-                    const titleEl = document.createElement('div');
-                    titleEl.className = 'card-title';
-                    titleEl.textContent = name;
-
-                    const reasonEl = document.createElement('div');
-                    reasonEl.className = 'card-reason';
-                    reasonEl.textContent = `Reason: ${reason}`;
-
-                    const imgContainer = document.createElement('div');
-                    imgContainer.className = 'image-container';
-
-                    const img = document.createElement('img');
-                    img.referrerPolicy = 'no-referrer'; 
-                    img.src = imgUrl;
-                    img.alt = 'Database Asset';
-                    
-                    img.onerror = () => {
-                        img.alt = '⚠️ Failed to display image';
-                        img.style.padding = '1rem';
-                        img.style.color = '#ff6b6b';
-                    };
-
-                    imgContainer.appendChild(img);
-                    card.appendChild(titleEl);
-                    card.appendChild(reasonEl);
-                    card.appendChild(imgContainer);
-                    
-                    galleryContainer.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('fuck slow ass servers:', error);
-                galleryContainer.innerHTML = `<div class="error-msg">❌ Servers are FRIED... its ggs.</div>`;
-                countNumber.textContent = "ERR";
-                counterBadge.style.color = '#ff6b6b';
-                counterBadge.style.borderColor = '#ff6b6b';
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', loadGallery);
-    </script>
 </body>
 </html>
