@@ -71,54 +71,62 @@
             color: #ffffff;
         }
 
-        .meme-container {
-    display: grid;
-    /* Allows cards to shrink further sideways to fit more in a row */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px; /* Tighter gap between cards */
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 20px;
-}
+.meme-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 15px;
+        }
 
-.meme-card {
-    background-color: #1a1a1c;
-    border-radius: 10px; /* Slightly rounder look for smaller size */
-    padding: 15px; /* Cut in half from 30px to shrink internal card space */
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .meme-card {
+            background-color: #1a1a1c;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.meme-card h2 {
-    font-family: 'NintendoFont', sans-serif;
-    margin: 0;
-    font-size: 1.4rem; /* Down from 2.2rem to match the smaller footprint */
-    letter-spacing: 1px;
-}
+        .meme-card h2 {
+            font-family: 'NintendoFont', sans-serif;
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
 
-.meme-card p.reason {
-    color: #888888;
-    font-size: 0.85rem; /* Down from 1.1rem */
-    font-weight: bold;
-    margin: 6px 0 12px 0; /* Reduced margins to scale down space */
-}
+        .meme-card p.reason {
+            color: #888888;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 6px 0 12px 0;
+        }
 
-.meme-image-wrapper {
-    background-color: #0a0a0a;
-    border-radius: 6px;
-    min-height: 160px; /* Scaled down proportionally with the card width */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    color: #ff5555;
-    font-weight: bold;
-    font-size: 0.85rem;
-}
+        .meme-image-wrapper {
+            background-color: #0a0a0a;
+            border-radius: 6px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #ff5555;
+            font-weight: bold;
+            font-size: 0.85rem;
+            width: 100%;
+        }
 
+        .meme-image-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+        }
         .pagination {
             margin: 40px 0;
             display: flex;
