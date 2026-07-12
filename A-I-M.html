@@ -27,10 +27,11 @@
             text-align: center;
             margin-bottom: 40px;
             width: 100%;
-            max-width: 600px;
+            max-width: 1200px;
         }
 
         .banner-img {
+            max-width: 500px;
             width: 100%;
             height: auto;
             border-radius: 12px;
@@ -71,11 +72,12 @@
         }
 
         .meme-container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 600px;
+            max-width: 1200px;
+            margin-top: 20px;
         }
 
         .meme-card {
@@ -84,6 +86,9 @@
             padding: 30px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .meme-card h2 {
@@ -126,24 +131,25 @@
             gap: 15px;
         }
 
-        .pagination a {
+        .pagination button {
             color: #fff;
             background-color: #5865F2;
             padding: 10px 20px;
-            text-decoration: none;
+            border: none;
             border-radius: 6px;
             font-weight: bold;
+            cursor: pointer;
             transition: background 0.2s;
         }
 
-        .pagination a:hover {
+        .pagination button:hover {
             background-color: #4752C4;
         }
 
-        .pagination a.disabled {
+        .pagination button:disabled {
             background-color: #2a2a2a;
             color: #666;
-            pointer-events: none;
+            cursor: not-allowed;
         }
 
         .pagination span {
@@ -188,37 +194,26 @@
 
     <div class="header-section">
         <img src="top-banner.png" alt="Meme Archive Banner" class="banner-img">
-        <h1>Anti-Innersloth Movement</h1>
+        <h1>Anti-Innersloth Movement (AIM)</h1>
         <p class="subtitle">For years, Innersloth, the company behind the indie game Among Us, has failed to take acountability for their platform, leaving thousands of minors exposed to dangerous content. The main issue is: dating, rapists , and pedophiles sweeping in thousands of lobbies to harm more victims by moving them to places like Snapchat, Telegram, and Discord. This server aims to archive and make sure Innersloth is held legally accountable, or at the least shine light on the situation as it has been under the roof for years. This website is not affiliated with Innersloth or Among Us.</p>
-        
+
         <div class="counter-badge">
             <span class="counter-label">LOGGED DATERS:</span> 
-            <span class="counter-number">{{ total_count | default('000') }}</span>
+            <span class="counter-number" id="total-count">000</span>
         </div>
     </div>
 
-    <div class="meme-container">
-        {% for meme in memes %}
-        <div class="meme-card">
-            <h2>{{ meme.name }}</h2>
-            <p class="reason">Reason: {{ meme.reason }}</p>
-            
-            <div class="meme-image-wrapper">
-                <img src="{{ meme.image_url }}" alt="Failed to display image">
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    <div class="meme-container" id="meme-container"></div>
 
     <div class="pagination">
-        <a href="?page={{ current_page - 1 }}" class="{% if current_page <= 1 %}disabled{% endif %}">Previous</a>
-        <span>Page {{ current_page }} of {{ total_pages }}</span>
-        <a href="?page={{ current_page + 1 }}" class="{% if current_page >= total_pages %}disabled{% endif %}">Next</a>
+        <button id="prev-btn" disabled>Previous</button>
+        <span id="page-info">Page 1 of 1</span>
+        <button id="next-btn" disabled>Next</button>
     </div>
 
     <footer>
-        <p style="color: #aaa; margin-bottom: 15px; font-weight: bold;">Want to support or contact us??</p>
-        <a href="https://discord.gg/CzdNrWA465" target="_blank" class="discord-btn">
+        <p style="color: #aaa; margin-bottom: 15px; font-weight: bold;">Want to support us or contact us?</p>
+        <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="discord-btn">
             <svg class="discord-icon" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
                 <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.66-10.85,68.43,68.43,0,0,1-10.5-5c.88-.65,1.72-1.33,2.53-2A75.52,75.52,0,0,0,96.48,78.5a68.43,68.43,0,0,1-10.5,5,74.37,74.37,0,0,0,6.66,10.85,105.73,105.73,0,0,0,31.06-18.83C129.93,50.55,123.93,27.78,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z"/>
             </svg>
@@ -226,5 +221,68 @@
         </a>
     </footer>
 
+    <script>
+        const API_URL = "https://aim-bot-if6s.onrender.com/api/reports";
+
+        let allMemes = [];
+        let currentPage = 1;
+        const itemsPerPage = 9;
+
+        async function loadMemes() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error("Backend connection failed");
+                
+                allMemes = await response.json();
+                
+                document.getElementById('total-count').innerText = String(allMemes.length).padStart(3, '0');
+                
+                renderPage(1);
+            } catch (error) {
+                console.error("Error loading data from API:", error);
+                document.getElementById('meme-container').innerHTML = '<p style="color: #ff5555; font-weight: bold; grid-column: 1/-1;">Failed to load server data.</p>';
+            }
+        }
+
+        function renderPage(page) {
+            currentPage = page;
+            const container = document.getElementById('meme-container');
+            container.innerHTML = '';
+
+            const totalPages = Math.ceil(allMemes.length / itemsPerPage) || 1;
+            
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = allMemes.slice(startIndex, endIndex);
+
+            pageItems.forEach(meme => {
+                const card = document.createElement('div');
+                card.className = 'meme-card';
+                card.innerHTML = `
+                    <h2>${meme.name || 'Untitled'}</h2>
+                    <p class="reason">Reason: ${meme.reason || 'None provided'}</p>
+                    <div class="meme-image-wrapper">
+                        <img src="${meme.imageUrl || meme.image || ''}" alt="Failed to display image" onerror="this.style.display='none'; this.parentElement.innerText='Failed to display image';">
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('page-info').innerText = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prev-btn').disabled = currentPage <= 1;
+            document.getElementById('next-btn').disabled = currentPage >= totalPages;
+        }
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentPage > 1) renderPage(currentPage - 1);
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            const totalPages = Math.ceil(allMemes.length / itemsPerPage) || 1;
+            if (currentPage < totalPages) renderPage(currentPage + 1);
+        });
+
+        loadMemes();
+    </script>
 </body>
 </html>
