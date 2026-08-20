@@ -1,6 +1,4 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:var(--subtitle-font-weight),500,700,600|Roboto:var(--r3-label-medium-emphasized-font-weight),var(--r3-body-medium-font-weight),var(--r3-body-large-font-weight)");
-
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
@@ -17,4 +15,34 @@ button:focus-visible {
 }
 a {
   text-decoration: none;
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Inter-SemiBold", "weight": "600", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: local("Inter-SemiBold");
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Inter-Medium", "weight": "500", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Inter-Medium";
+  src: local("Inter-Medium");
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Inter-Bold", "weight": "700", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold");
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Inter", "weight": "var(--subtitle-font-weight)", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter");
+}
+/* @FONTWARNING[{"type": "restricted", "family": "Roboto", "weight": "var(--m3-body-large-font-weight)", "style": "normal", "allowsCrossOrigin": false}] */
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto");
 }
