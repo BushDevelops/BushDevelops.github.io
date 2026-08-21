@@ -529,7 +529,9 @@
 
 /* 2. Style the custom inner split images directly */
 .desktop .img-split {
-  position: relative !important;   /* 🌟 ADD THIS: Stops the images from breaking container boundaries */
+  position: relative !important;   
+  top: 0 !important;                /* 🌟 ADD THIS: Forces the image back up to the top alignment line */
+  left: 0 !important;               /* 🌟 ADD THIS: Anchors the horizontal alignment firmly in place */
   flex: 1 !important;
   width: 50% !important;
   height: 100% !important;
