@@ -529,11 +529,13 @@
 
 /* 2. Style the custom inner split images directly */
 .desktop .img-split {
+  position: relative !important;   /* 🌟 ADD THIS: Stops the images from breaking container boundaries */
   flex: 1 !important;
   width: 50% !important;
   height: 100% !important;
-  object-fit: cover !important;     /* Auto-crops the widescreen dimensions */
+  object-fit: cover !important;     
   object-position: center !important;
-  border-radius: 4px !important;    /* Subtle separation rounding */
+  border-radius: 4px !important;    
 }
+
 
