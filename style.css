@@ -515,25 +515,25 @@
     white-space: normal;
     text-align: left;
   }
+  
 }
-
-/* 1. Setup the split container */
-.desktop .media.two-photos {
+/* 1. Setup the structural frame for the double image card */
+.desktop .split-grid {
   display: flex !important;
-  flex-direction: row !important; 
-  gap: 4px;            
-  background-color: #151515;
-  width: 100%;
-  height: 315px;
-  position: relative;
+  flex-direction: row !important;
+  gap: 6px !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #151515 !important;
 }
 
-/* 2. Break the images out of their absolute positioning trap */
-.desktop .media.two-photos .img {
-  position: static !important;  /* 🌟 CRUCIAL: Breaks the images free so they sit side-by-side */
-  flex: 1 !important;           /* Forces them to share the 404px card width equally */
+/* 2. Style the custom inner split images directly */
+.desktop .img-split {
+  flex: 1 !important;
   width: 50% !important;
   height: 100% !important;
-  object-fit: cover !important; /* Prevents squishing and cleanly clips the UI previews */
+  object-fit: cover !important;     /* Auto-crops the widescreen dimensions */
+  object-position: center !important;
+  border-radius: 4px !important;    /* Subtle separation rounding */
 }
 
