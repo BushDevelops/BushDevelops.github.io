@@ -515,29 +515,4 @@
     white-space: normal;
     text-align: left;
   }
-  
-}
-/* 1. Setup the structural frame for the double image card */
-.desktop .split-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 6px !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: #151515 !important;
-}
-
-/* 2. Style the custom inner split images directly */
-.desktop .img-split {
-  position: relative !important;   
-  top: 0 !important;                /* 🌟 ADD THIS: Forces the image back up to the top alignment line */
-  left: 0 !important;               /* 🌟 ADD THIS: Anchors the horizontal alignment firmly in place */
-  flex: 1 !important;
-  width: 50% !important;
-  height: 100% !important;
-  object-fit: cover !important;     
-  object-position: center !important;
-  border-radius: 4px !important;    
-}
-
 
