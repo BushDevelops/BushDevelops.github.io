@@ -516,3 +516,20 @@
     text-align: left;
   }
 }
+
+/* Custom rule to handle double image layouts side-by-side */
+.desktop .media.two-photos {
+  display: flex;
+  flex-direction: row; /* Lines them up next to each other */
+  gap: 4px;            /* Adds a clean modern gap separator between both shots */
+  background-color: #151515;
+}
+
+/* Forces both images to share the container space 50/50 without squeezing */
+.desktop .media.two-photos .img {
+  position: relative;  /* Overrides the 'absolute' property breaking it currently */
+  flex: 1;             /* Tells each photo to take exactly half the layout width */
+  width: 50%;
+  height: 100%;
+  object-fit: cover;   /* Autocrops the screens cleanly to fill their halves */
+}
