@@ -22,27 +22,3 @@ a {
   font-family: "Inter-SemiBold";
   src: local("Inter-SemiBold");
 }
-/* @FONTWARNING[{"type": "restricted", "family": "Inter-Medium", "weight": "500", "style": "normal", "allowsCrossOrigin": false}] */
-
-@font-face {
-  font-family: "Inter-Medium";
-  src: local("Inter-Medium");
-}
-/* @FONTWARNING[{"type": "restricted", "family": "Inter-Bold", "weight": "700", "style": "normal", "allowsCrossOrigin": false}] */
-
-@font-face {
-  font-family: "Inter-Bold";
-  src: local("Inter-Bold");
-}
-/* @FONTWARNING[{"type": "restricted", "family": "Inter", "weight": "var(--subtitle-font-weight)", "style": "normal", "allowsCrossOrigin": false}] */
-
-@font-face {
-  font-family: "Inter";
-  src: local("Inter");
-}
-/* @FONTWARNING[{"type": "restricted", "family": "Roboto", "weight": "var(--m3-body-large-font-weight)", "style": "normal", "allowsCrossOrigin": false}] */
-
-@font-face {
-  font-family: "Roboto";
-  src: local("Roboto");
-}
