@@ -21,7 +21,7 @@ Error generating stack: `+o.message+`
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background-color: #191919;
+  background-color: #151515;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
   @media (min-width: 768px) {
     padding: 2rem;
