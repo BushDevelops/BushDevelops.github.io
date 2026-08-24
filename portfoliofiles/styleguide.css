@@ -1,0 +1,70 @@
+:root {
+  --subtitle-font-family: "Inter", Helvetica;
+  --subtitle-font-weight: 400;
+  --subtitle-font-size: 32px;
+  --subtitle-letter-spacing: 0px;
+  --subtitle-line-height: 120.00000476837158%;
+  --subtitle-font-style: normal;
+  --m3-label-medium-emphasized-font-family: "Roboto", Helvetica;
+  --m3-label-medium-emphasized-font-weight: 600;
+  --m3-label-medium-emphasized-font-size: 12px;
+  --m3-label-medium-emphasized-letter-spacing: 0.5px;
+  --m3-label-medium-emphasized-line-height: 16px;
+  --m3-label-medium-emphasized-font-style: normal;
+  --m3-body-large-font-family: "Roboto", Helvetica;
+  --m3-body-large-font-weight: 400;
+  --m3-body-large-font-size: 16px;
+  --m3-body-large-letter-spacing: 0.5px;
+  --m3-body-large-line-height: 24px;
+  --m3-body-large-font-style: normal;
+  --m3-body-medium-font-family: "Roboto", Helvetica;
+  --m3-body-medium-font-weight: 400;
+  --m3-body-medium-font-size: 14px;
+  --m3-body-medium-letter-spacing: 0.25px;
+  --m3-body-medium-line-height: 20px;
+  --m3-body-medium-font-style: normal;
+  --m3-schemes-surface: rgba(254, 247, 255, 1);
+  --m3-schemes-surface-variant: rgba(231, 224, 236, 1);
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-m3-mode="light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-m3-mode="light"] {
+  --m3-schemes-surface: rgba(254, 247, 255, 1);
+  --m3-schemes-surface-variant: rgba(231, 224, 236, 1);
+}
+
+[data-m3-mode="light-high-contrast"] {
+  --m3-schemes-surface: rgba(253, 247, 255, 1);
+  --m3-schemes-surface-variant: rgba(231, 224, 235, 1);
+}
+
+[data-m3-mode="light-medium-contrast"] {
+  --m3-schemes-surface: rgba(253, 247, 255, 1);
+  --m3-schemes-surface-variant: rgba(231, 224, 235, 1);
+}
+
+[data-m3-mode="dark"] {
+  --m3-schemes-surface: rgba(20, 18, 24, 1);
+  --m3-schemes-surface-variant: rgba(73, 69, 79, 1);
+}
+
+[data-m3-mode="dark-high-contrast"] {
+  --m3-schemes-surface: rgba(20, 18, 24, 1);
+  --m3-schemes-surface-variant: rgba(73, 69, 78, 1);
+}
+
+[data-m3-mode="dark-medium-contrast"] {
+  --m3-schemes-surface: rgba(20, 18, 24, 1);
+  --m3-schemes-surface-variant: rgba(73, 69, 78, 1);
+}
