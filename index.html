@@ -19,22 +19,27 @@ tailwind.config = {
 </script>
 </head>
 <body>
-<div class="bg-[#151515] overflow-y-scroll w-full min-w-[1280px] min-h-[1080px] relative">
-  <div class="flex w-[1280px] items-center justify-around gap-4 px-16 py-6 absolute top-0 left-0">
-    <div class="flex flex-1 grow items-center gap-2 relative">
-      <div class="relative flex items-center flex-1 mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-2xl tracking-[-0.48px] leading-[34.8px]">BushDeveloper's portal</div>
-    </div>
-  </div>
+<div class="bg-[#151515] overflow-y-scroll w-full min-h-[1080px] relative">
+  <!-- Centered 1280px content block; background above still fills the full viewport width -->
+  <div class="relative max-w-[1280px] min-h-[1080px] mx-auto">
 
-  <!-- Carousel mounts here instead of the static SVG image -->
-  <div id="carousel-root" class="absolute w-[1280px] top-[92px] left-0"></div>
-
-  <div class="flex w-full h-[107px] items-center justify-around gap-[120px] p-16 absolute left-0 bottom-0 border-t [border-top-style:solid] border-[#ffffff1a]">
-    <div class="inline-flex items-center justify-center gap-8 relative flex-[0_0_auto] mt-[-25.00px] mb-[-25.00px]">
-      <div class="inline-flex flex-[0_0_auto] items-center gap-2 relative">
-        <div class="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-xl text-center tracking-[-0.40px] leading-[29.0px] whitespace-nowrap">BushDev</div>
+    <div class="flex w-full items-center justify-around gap-4 px-16 py-6 absolute top-0 left-0">
+      <div class="flex flex-1 grow items-center gap-2 relative">
+        <div class="relative flex items-center flex-1 mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-2xl tracking-[-0.48px] leading-[34.8px]">BushDeveloper's portal</div>
       </div>
     </div>
+
+    <!-- Carousel mounts here instead of the static SVG image -->
+    <div id="carousel-root" class="absolute w-full top-[92px] left-0"></div>
+
+    <div class="flex w-full h-[107px] items-center justify-around gap-[120px] p-16 absolute left-0 bottom-0 border-t [border-top-style:solid] border-[#ffffff1a]">
+      <div class="inline-flex items-center justify-center gap-8 relative flex-[0_0_auto] mt-[-25.00px] mb-[-25.00px]">
+        <div class="inline-flex flex-[0_0_auto] items-center gap-2 relative">
+          <div class="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-xl text-center tracking-[-0.40px] leading-[29.0px] whitespace-nowrap">BushDev</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
