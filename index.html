@@ -1,81 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub</title>
-    
-    <!-- Discord Embed Configuration Fields -->
-    <meta property="og:title" content="BushDev - UI/UX Designer" />
-    <meta property="og:description" content="BushDev's main hub for his projects" />
-    <meta property="og:url" content="https://is-a.dev" />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#7cfc00" />
-
-    <style>
-        body {
-            background-color: #0c0c0c;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            border: 1px solid #222;
-            padding: 40px;
-            background-color: #111;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 100%;
-        }
-        h1 { 
-            color: #ffffff; /* Patched the missing '#' string symbol */
-            margin-bottom: 5px;
-            font-size: 24px;
-        }
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        .btn {
-            display: block;
-            background-color: #7cfc00;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s;
-        }
-        .btn:hover {
-            background-color: #ff0000;
-        }
-        .btn-alt {
-            background-color: #222;
-            border: 1px solid #444;
-        }
-        .btn-alt:hover {
-            background-color: #333;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BushDeveloper’s Portal</title>
+<link rel="stylesheet" href="globals.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+/** @type {import('tailwindcss').Config} */
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      },
+      theme: {
+        extend: {},
+      },
+      plugins: [],
+    };
+  </script>
 </head>
 <body>
-    <div class="container">
-        <h1>BushDev's hub</h1>
-        <div class="subtitle">Click something i guess</div>
-        
-        <a class="btn btn-alt" href="/portfolio">view portfolio -></a>
-        <a class="btn btn-alt" href="/lolcode">go to lolcode translator -></a>
-        <a class="btn btn-alt" href="/contact">Contact me -></a>
-        <a class="btn btn-alt" href="/A-I-M">Among us situation (ARCHIVE) -></a>
-    </div>
+<div class="bg-[#151515] overflow-y-scroll w-full min-w-[1280px] min-h-[1080px] relative">
+<header class="flex w-[1280px] items-center justify-around gap-4 px-16 py-6 absolute top-0 left-0">
+<div class="flex flex-1 grow items-center gap-2 relative">
+<h1 class="relative flex items-center flex-1 mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-2xl tracking-[-0.48px] leading-[34.8px]">
+BushDeveloper’s portal
+        </h1>
+</div>
+</header>
+<main aria-label="BushDev portfolio">
+<section aria-label="Portfolio showcase">
+<figure>
+<img
+            class="absolute w-[1280px] h-[851px] top-[92px] left-0"
+            src="img/card-carousel-1-1.svg"
+            alt="BushDev's Portfolio. Information about experience in UI/UX design, moderation, game development, and more."
+          >
+</figure>
+</section>
+</main>
+<footer class="flex w-full h-[107px] items-center justify-around gap-[120px] p-16 absolute left-0 bottom-0 border-t [border-top-style:solid] border-[#ffffff1a]">
+<div class="inline-flex items-center justify-center gap-8 relative flex-[0_0_auto] mt-[-25.00px] mb-[-25.00px]">
+<div class="inline-flex flex-[0_0_auto] items-center gap-2 relative">
+<p class="relative flex items-center justify-center w-fit mt-[-1.00px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-xl text-center tracking-[-0.40px] leading-[29.0px] whitespace-nowrap">
+BushDev
+          </p>
+</div>
+</div>
+</footer>
+</div>
 </body>
 </html>
