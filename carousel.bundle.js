@@ -20,9 +20,13 @@ Error generating stack: `+o.message+`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 1rem;
-  background-color: #191919;
+  background-color: transparent;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
   @media (min-width: 768px) {
     padding: 2rem;
   }
