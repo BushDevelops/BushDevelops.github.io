@@ -34,7 +34,7 @@
   min-height: 1080px;
   align-items: center;
   position: relative;
-  background-color: #151515;
+  background-color: rgba(21, 21, 21, 0.9);
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
