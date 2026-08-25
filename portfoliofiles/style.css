@@ -1,3 +1,33 @@
+:root {
+  --subtitle-font-family: "Inter-SemiBold", Helvetica, Arial, sans-serif;
+  --subtitle-font-weight: 600;
+  --subtitle-font-size: 22px;
+  --subtitle-letter-spacing: -0.2px;
+  --subtitle-line-height: 28px;
+  --subtitle-font-style: normal;
+
+  --m3-label-medium-emphasized-font-family: "Inter-Medium", Helvetica, Arial, sans-serif;
+  --m3-label-medium-emphasized-font-weight: 500;
+  --m3-label-medium-emphasized-font-size: 14px;
+  --m3-label-medium-emphasized-letter-spacing: 0.1px;
+  --m3-label-medium-emphasized-line-height: 20px;
+  --m3-label-medium-emphasized-font-style: normal;
+
+  --m3-body-large-font-family: "Inter", Helvetica, Arial, sans-serif;
+  --m3-body-large-font-weight: 400;
+  --m3-body-large-font-size: 16px;
+  --m3-body-large-letter-spacing: 0.5px;
+  --m3-body-large-line-height: 24px;
+  --m3-body-large-font-style: normal;
+
+  --m3-body-medium-font-family: "Inter", Helvetica, Arial, sans-serif;
+  --m3-body-medium-font-weight: 400;
+  --m3-body-medium-font-size: 14px;
+  --m3-body-medium-letter-spacing: 0.25px;
+  --m3-body-medium-line-height: 20px;
+  --m3-body-medium-font-style: normal;
+}
+
 .desktop {
   display: flex;
   flex-direction: column;
@@ -6,6 +36,8 @@
   position: relative;
   background-color: #151515;
   overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
 }
 
 .desktop .header {
@@ -222,6 +254,7 @@
   height: 100.95%;
   top: 0;
   left: 0;
+  object-fit: cover;
 }
 
 .desktop .text-content {
@@ -379,10 +412,8 @@
 
 .desktop::-webkit-scrollbar {
   width: 0;
-  display: none;
+  height: 0;
 }
-
-/* Inject the original style.css code before the following refactor additions. */
 
 .desktop .primary-button,
 .desktop .div-wrapper {
@@ -403,10 +434,6 @@
 
 .desktop .div-wrapper:hover {
   background-color: #707070;
-}
-
-.desktop .img {
-  object-fit: cover;
 }
 
 @media (max-width: 1320px) {
