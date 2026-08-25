@@ -1,148 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BushDeveloper’s Portfolio</title>
-    
-    <!-- Discord Embed Configuration Fields -->
-    <meta property="og:title" content="BushDeveloper’s Portfolio" />
-    <meta property="og:description" content="Learning UI/UX Designer for games and websites, and a small content creator on Polytoria and Luduvo." />
-    <meta property="og:url" content="https://is-a.dev" />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#7cfc00" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BushDeveloper's Portfolio</title>
 
-    <link rel="stylesheet" href="portfoliofiles/globals.css">
-    <link rel="stylesheet" href="portfoliofiles/styleguide.css">
-    <link rel="stylesheet" href="portfoliofiles/style.css">
+<!-- Discord Embed Configuration Fields -->
+<meta property="og:title" content="BushDeveloper's Portfolio" />
+<meta property="og:description" content="Learning UI/UX Designer for games and websites, and a small content creator on Polytoria and Luduvo." />
+<meta property="og:url" content="https://is-a.dev" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#7cfc00" />
+
+<link rel="stylesheet" href="portfoliofiles/globals.css">
+<link rel="stylesheet" href="portfoliofiles/styleguide.css">
+<link rel="stylesheet" href="portfoliofiles/style.css">
 </head>
-
 <body>
-    <main class="desktop">
-        <header class="header">
-            <div class="company">
-                <span class="text-wrapper">BushDeveloper’s portfolio</span>
-            </div>
+<script src="gradient-bg.js"></script>
+<main class="desktop">
+<header class="header">
+<div class="company">
+<span class="text-wrapper">BushDeveloper's portfolio</span>
+</div>
+<nav class="buttons" aria-label="Portfolio navigation">
+<button
+class="primary-button"
+type="button"
+onclick="window.history.back()"
+aria-label="Go back to the main hub"
+>
+<span class="div">Back to main hub</span>
+</button>
+</nav>
+</header>
 
-            <nav class="buttons" aria-label="Portfolio navigation">
-                <button
-                    class="primary-button"
-                    type="button"
-                    onclick="window.history.back()"
-                    aria-label="Go back to the main hub"
-                >
-                    <span class="div">Back to main hub</span>
-                </button>
-            </nav>
-        </header>
+<section
+class="hero"
+aria-labelledby="hero-title"
+>
+<div class="hero-body">
+<div class="hero-intro">
+<h1
+class="text-wrapper-2"
+id="hero-title"
+>
+Hi, I'm BushDev.
+</h1>
+<p class="p">
+I am a learning UI/UX Designer for games and websites, and a small content creator on Polytoria and Luduvo. Check out some of my work!
+</p>
+</div>
+<div class="hero-CTA">
+<button
+class="div-wrapper"
+type="button"
+onclick="window.location.hash='contact'"
+aria-label="Jump to contact information"
+>
+<span class="text-wrapper-3">Contact me</span>
+</button>
+</div>
+</div>
+</section>
 
-        <section
-            class="hero"
-            aria-labelledby="hero-title"
-        >
-            <div class="hero-body">
-                <div class="hero-intro">
-                    <h1
-                        class="text-wrapper-2"
-                        id="hero-title"
-                    >
-                        Hi, I’m BushDev.
-                    </h1>
+<section
+class="portfolio-grid"
+aria-label="Selected portfolio projects"
+>
+<article class="div-2">
+<div class="media">
+<img
+class="img"
+src="media.png"
+alt="Axiom Nintendo 3DS homebrew application interface"
+>
+</div>
+<div class="text-content">
+<div class="headline">
+<h2 class="title">Axiom</h2>
+<p class="subhead">N3DS Homebrew application</p>
+</div>
+<p class="supporting-text">
+Axiom is a patcher for a Nintendo 3DS reival network, I made this unofficial UI for fun.
+</p>
+</div>
+</article>
 
-                    <p class="p">
-                        I am a learning UI/UX Designer for games and websites, and a small content creator on Polytoria and Luduvo. Check out some of my work!
-                    </p>
-                </div>
+<article class="div-2">
+<div class="media">
+<img
+class="img"
+src="image.png"
+alt="Cancelled Roblox laboratory game user interface"
+>
+</div>
+<div class="text-content">
+<div class="headline">
+<h2 class="title-2">Cancelled Roblox game</h2>
+<p class="subhead">Laboratory Game UI</p>
+</div>
+<p class="supporting-text-2">
+One of my passion projects, a Laboratory game, was unfortunately cancelled by the owner. I was working on their UI.
+</p>
+</div>
+</article>
 
-                <div class="hero-CTA">
-                    <button
-                        class="div-wrapper"
-                        type="button"
-                        onclick="window.location.hash='contact'"
-                        aria-label="Jump to contact information"
-                    >
-                        <span class="text-wrapper-3">Contact me</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+<article class="div-2">
+<div class="media">
+<img
+class="img"
+src="media-2.png"
+alt="PlaceholderDev project interface"
+>
+</div>
+<div class="text-content">
+<div class="headline">
+<h2 class="title">PlaceholderDev</h2>
+<p class="subhead">Placeholder</p>
+</div>
+<p class="supporting-text">
+Its the real bushdev
+</p>
+</div>
+</article>
+</section>
 
-        <section
-            class="portfolio-grid"
-            aria-label="Selected portfolio projects"
-        >
-            <article class="div-2">
-                <div class="media">
-                    <img
-                        class="img"
-                        src="media.png"
-                        alt="Axiom Nintendo 3DS homebrew application interface"
-                    >
-                </div>
-
-                <div class="text-content">
-                    <div class="headline">
-                        <h2 class="title">Axiom</h2>
-                        <p class="subhead">N3DS Homebrew application</p>
-                    </div>
-
-                    <p class="supporting-text">
-                        Axiom is a patcher for a Nintendo 3DS reival network, I made this unofficial UI for fun.
-                    </p>
-                </div>
-            </article>
-
-            <article class="div-2">
-                <div class="media">
-                    <img
-                        class="img"
-                        src="image.png"
-                        alt="Cancelled Roblox laboratory game user interface"
-                    >
-                </div>
-
-                <div class="text-content">
-                    <div class="headline">
-                        <h2 class="title-2">Cancelled Roblox game</h2>
-                        <p class="subhead">Laboratory Game UI</p>
-                    </div>
-
-                    <p class="supporting-text-2">
-                        One of my passion projects, a Laboratory game, was unfortunately cancelled by the owner. I was working on their UI.
-                    </p>
-                </div>
-            </article>
-
-            <article class="div-2">
-                <div class="media">
-                    <img
-                        class="img"
-                        src="media-2.png"
-                        alt="PlaceholderDev project interface"
-                    >
-                </div>
-
-                <div class="text-content">
-                    <div class="headline">
-                        <h2 class="title">PlaceholderDev</h2>
-                        <p class="subhead">Placeholder</p>
-                    </div>
-
-                    <p class="supporting-text">
-                        Its the real bushdev
-                    </p>
-                </div>
-            </article>
-        </section>
-
-        <footer
-            class="footer"
-            id="contact"
-        >
-            <div class="footer-logo">
-                <span class="text-wrapper-4">BushDev</span>
-            </div>
-        </footer>
-    </main>
+<footer
+class="footer"
+id="contact"
+>
+<div class="footer-logo">
+<span class="text-wrapper-4">BushDev</span>
+</div>
+</footer>
+</main>
 </body>
 </html>
