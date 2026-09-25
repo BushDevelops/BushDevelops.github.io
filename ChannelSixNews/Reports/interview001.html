@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>An interview with the rebellion - Channel Six News</title>
+  <title>An interview with the rebellion: are they that bad? - Channel Six News</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="An interview with the rebellion: are they that bad? - Channel Six News" />
+  <meta name="description" content="Channel Six News spoke with a member of the Rebellion, Maximus, about the group's origins, its motivations, and what it hopes to accomplish." />
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview001.html" />
+  <meta property="og:title" content="An interview with the rebellion: are they that bad?" />
+  <meta property="og:description" content="Channel Six News spoke with a member of the Rebellion, Maximus, about the group's origins, its motivations, and what it hopes to accomplish." />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview_001.png" />
+  <meta name="theme-color" content="#8F91FC" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview001.html" />
+  <meta name="twitter:title" content="An interview with the rebellion: are they that bad?" />
+  <meta name="twitter:description" content="Channel Six News spoke with a member of the Rebellion, Maximus, about the group's origins, its motivations, and what it hopes to accomplish." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview_001.png" />
 
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +42,7 @@
       overflow-x: hidden;
     }
 
-    /* Same Top Bar as index.html */
+    /* Top Bar */
     .Header1 {
       width: 100%;
       padding: 24px 64px;
@@ -91,9 +110,9 @@
 
     /* Main Headline */
     .Headline {
-      font-size: 48px;
+      font-size: 46px;
       font-weight: 900;
-      line-height: 1.15;
+      line-height: 1.2;
       color: #000;
       text-align: center;
       text-transform: uppercase;
@@ -105,18 +124,52 @@
     .StoryBody {
       width: 100%;
       max-width: 780px;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.65;
       color: #1a1a1a;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 20px;
+    }
+
+    .Lead {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .Question {
+      font-weight: 700;
+      color: #1a2a4a;
+      margin-top: 14px;
+    }
+
+    .Answer {
+      background: #f7f8fc;
+      border-left: 4px solid #8F91FC;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #222;
+    }
+    .Answer strong {
+      font-style: normal;
+      color: #000;
+    }
+
+    .Note {
+      color: #444;
+      font-size: 18px;
     }
 
     /* Byline / Reporter Section */
     .Reporters {
-      margin-top: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
       font-size: 18px;
       line-height: 1.4;
       font-weight: 700;
@@ -150,6 +203,9 @@
       .StoryBody {
         font-size: 17px;
       }
+      .Lead {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -167,44 +223,44 @@
 
   <!-- Article Content -->
   <main class="ArticleContainer">
-    <img src="interview_001.png" alt="error" class="StoryImage" />
+    <img src="interview_001.png" alt="Rebellion Interview" class="StoryImage" />
 
     <div class="Topic">Topic: Rebellion</div>
 
     <h1 class="Headline">An interview with the rebellion: are they that bad?</h1>
 
     <article class="StoryBody">
-      <p>
-        Channel Six News spoke with a member of the Rebellion, Maximus about the group's origins, its motivations, and what it hopes to accomplish. Here is our full conversation log:
-
-        Channel Six: To start, could you tell us a little about the Rebellion and what it is?
-
-Maximus: “The rebellion is to fight against the creation of nukes. It gives radiation poisoning, so we had to stand against it. That's only one part, we were all fired for speaking out against their tyrany.”
-
-The Rebellion's main goal is to blow up the core to put an end to the NBTF, according to Maximus.
-
-Channel Six: What inspired you to get involved with it?
-
-Maximus: “When we were Executives back at the Facility, we were getting too low pay. So we not only started the rebellion, but we gave our workers fair pay too.”
-
-Maximus also said the Rebellion began partly because of disagreements over working conditions and employee pay.
-
-Channel Six: What has the response been like so far?
-
-Maximus: “The facility security shot at us for riding a forklift.”
-
-The incident, as described by Maximus, talks about a security guard shooting at him while riding a forklift. Channel Six News has not independently verified the circumstances surrounding the encounter.
-
-Channel Six: What do you think people misunderstand about the Rebellion?
-
-Maximus: “The violence, it doesn't look like it, but it's necesary. We have lost many comrades to fight for righteous justice.”
-
-Channel Six: What are you hoping to accomplish going forward?
-
-Maximus: “Making the facility pay for what they have done.”
-
-        Looking foward: The rebellion hopes to keep fighting against the NBTF and keep fighting until their "justice" is serverd.
+      <p class="Lead">
+        Channel Six News spoke with a member of the Rebellion, Maximus, about the group's origins, its motivations, and what it hopes to accomplish. Here is our full conversation log:
       </p>
+
+      <p class="Question"><strong>Channel Six:</strong> To start, could you tell us a little about the Rebellion and what it is?</p>
+      
+      <p class="Answer"><strong>Maximus:</strong> “The rebellion is to fight against the creation of nukes. It gives radiation poisoning, so we had to stand against it. That's only one part, we were all fired for speaking out against their tyranny.”</p>
+
+      <p class="Note">The Rebellion's main goal is to blow up the core to put an end to the NBTF, according to Maximus.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What inspired you to get involved with it?</p>
+
+      <p class="Answer"><strong>Maximus:</strong> “When we were Executives back at the Facility, we were getting too low pay. So we not only started the rebellion, but we gave our workers fair pay too.”</p>
+
+      <p class="Note">Maximus also said the Rebellion began partly because of disagreements over working conditions and employee pay.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What has the response been like so far?</p>
+
+      <p class="Answer"><strong>Maximus:</strong> “The facility security shot at us for riding a forklift.”</p>
+
+      <p class="Note">The incident, as described by Maximus, involved a security guard shooting at him while riding a forklift. Channel Six News has not independently verified the circumstances surrounding the encounter.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What do you think people misunderstand about the Rebellion?</p>
+
+      <p class="Answer"><strong>Maximus:</strong> “The violence, it doesn't look like it, but it's necessary. We have lost many comrades to fight for righteous justice.”</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What are you hoping to accomplish going forward?</p>
+
+      <p class="Answer"><strong>Maximus:</strong> “Making the facility pay for what they have done.”</p>
+
+      <p class="Note"><strong>Looking forward:</strong> The rebellion hopes to keep fighting against the NBTF and keep fighting until their "justice" is served.</p>
 
       <div class="Reporters">
         Reporters on Site
