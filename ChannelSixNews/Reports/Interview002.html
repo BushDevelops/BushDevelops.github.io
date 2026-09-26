@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>An interview with the NBTF: Their story - Channel Six News</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="An interview with the NBTF: Their story - Channel Six News" />
+  <meta name="description" content="Channel Six News spoke with the Facility Director of the NBTF about the facility's origins, its motivations, and what it hopes to accomplish." />
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview002.html" />
+  <meta property="og:title" content="An interview with the NBTF: Their story" />
+  <meta property="og:description" content="Channel Six News spoke with the Facility Director of the NBTF about the facility's origins, its motivations, and what it hopes to accomplish." />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview002.png" />
+  <meta name="theme-color" content="#8F91FC" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview002.html" />
+  <meta name="twitter:title" content="An interview with the NBTF: Their story" />
+  <meta name="twitter:description" content="Channel Six News spoke with the Facility Director of the NBTF about the facility's origins, its motivations, and what it hopes to accomplish." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview002.png" />
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* Top Bar */
+    .Header1 {
+      width: 100%;
+      padding: 24px 64px;
+      background: linear-gradient(90deg, #8F91FC 0%, #555696 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ChannelSix {
+      color: #CDD8EF;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+    .Nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .Nav a {
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 23.2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .Nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Article Container */
+    .ArticleContainer {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Story Hero Image */
+    .StoryImage {
+      width: 100%;
+      max-width: 740px;
+      height: auto;
+      border: 3px solid #111;
+      border-radius: 4px;
+      display: block;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    /* Topic Pill */
+    .Topic {
+      font-size: 26px;
+      font-weight: 600;
+      color: #222;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* Main Headline */
+    .Headline {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #000;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      letter-spacing: -0.5px;
+    }
+
+    /* Article Body */
+    .StoryBody {
+      width: 100%;
+      max-width: 780px;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .Lead {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .Question {
+      font-weight: 700;
+      color: #1a2a4a;
+      margin-top: 14px;
+    }
+
+    .Answer {
+      background: #f7f8fc;
+      border-left: 4px solid #8F91FC;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #222;
+    }
+    .Answer strong {
+      font-style: normal;
+      color: #000;
+    }
+
+    .Note {
+      color: #444;
+      font-size: 18px;
+    }
+
+    /* Byline / Reporter Section */
+    .Reporters {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #111;
+      text-transform: uppercase;
+    }
+    .Reporters span {
+      display: block;
+      font-weight: 600;
+      color: #444;
+      text-transform: none;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .Header1 {
+        padding: 20px 24px;
+      }
+      .ChannelSix {
+        font-size: 34px;
+      }
+      .Nav {
+        gap: 16px;
+      }
+      .Headline {
+        font-size: 32px;
+      }
+      .Topic {
+        font-size: 20px;
+      }
+      .StoryBody {
+        font-size: 17px;
+      }
+      .Lead {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-width header matching index.html -->
+  <header class="Header1">
+    <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+    <nav class="Nav">
+      <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
+      <a href="https://bush.is-a.dev/Contact/">Contact</a>
+      <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Article Content -->
+  <main class="ArticleContainer">
+    <img src="interview002.png" alt="NBTF Facility Director Interview" class="StoryImage" />
+
+    <div class="Topic">Topic: NBTF</div>
+
+    <h1 class="Headline">An interview with the NBTF: Their story</h1>
+
+    <article class="StoryBody">
+      <p class="Lead">
+        Channel Six News spoke with the Facility Director of the NBTF about the group's origins, its motivations, and what it hopes to accomplish. Here is our full conversation log:
+      </p>
+
+      <p class="Question"><strong>Channel Six:</strong> To start, could you tell us a little about the Facility and what it is?</p>
+      
+      <p class="Answer"><strong>Facility Director:</strong> “Our purpose is to create energy for humanity to use for years to come.”</p>
+
+      <p class="Note">The Facility's stated purpose is to create energy for humanity to use for years to come.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What inspired you to direct the Facility?</p>
+
+      <p class="Answer"><strong>Facility Director:</strong> “Programming, engineering, and leading people.”</p>
+
+      <p class="Note">The Director says their interest in programming, engineering, and leadership inspired them to take on the role.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> Recently, the facility has been exposed to an ongoing rebellion, do you have anything to say to that?</p>
+
+      <p class="Answer"><strong>Facility Director:</strong> “Well, what I have to say is that I actually want to meet the demands of the civilians, the public, and the rebels, for I want peace.”</p>
+
+      <p class="Note">The Director says they want to meet the demands of the public and the rebels in an effort to bring an end to the ongoing conflict.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What do you think people misunderstand about the NBTF?</p>
+
+      <p class="Answer"><strong>Facility Director:</strong> “I think people think we just like having a reason to kill people.”</p>
+
+      <p class="Note">The Director says the Facility is often misunderstood as an organization that simply wants a reason to use violence.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What are you hoping to accomplish going forward?</p>
+
+      <p class="Answer"><strong>Facility Director:</strong> “To continue our research.”</p>
+
+      <p class="Note"><strong>Looking forward:</strong> The Facility plans to continue its research, according to the Director.</p>
+
+      <div class="Reporters">
+        Reporters on Site
+        <span>BushDev</span>
+      </div>
+    </article>
+  </main>
+
+</body>
+</html>
