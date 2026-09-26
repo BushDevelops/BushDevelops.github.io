@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Channel Six News</title>
+
+  <!-- Open Graph / Discord Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/" />
+  <meta property="og:title" content="Channel Six News" />
+  <meta property="og:description" content="Latest breaking headlines, reports, and exclusive interviews from Channel Six." />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/card1.png" />
+  <meta name="theme-color" content="#8F91FC" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Channel Six News" />
+  <meta name="twitter:description" content="Latest breaking headlines, reports, and exclusive interviews from Channel Six." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/card1.png" />
   
   <!-- Inter Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +56,11 @@
       font-size: 56px;
       font-weight: 900;
       line-height: 1.1;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .ChannelSix:hover {
+      opacity: 0.9;
     }
     .Nav {
       display: flex;
@@ -77,16 +96,7 @@
       flex-wrap: wrap;
       gap: 32px;
     }
-    .Card1 {
-      flex: 1 1 336px;
-      max-width: 388px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .Card2 {
-      flex: 1 1 516px;
+    .Card {
       border-radius: 8px;
       display: flex;
       flex-direction: column;
@@ -96,17 +106,20 @@
       cursor: pointer;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .Card2:hover {
+    .Card:hover {
       transform: translateY(-3px);
       opacity: 0.95;
+    }
+    .Card1 {
+      flex: 1 1 336px;
+      max-width: 388px;
+    }
+    .Card2 {
+      flex: 1 1 516px;
     }
     .Card3 {
       flex: 1 1 100%;
       width: 100%;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
     }
     .Card-Image {
       width: 100%;
@@ -114,6 +127,7 @@
       object-fit: cover;
       border-radius: 16px;
       display: block;
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
     .Card-Text {
       display: flex;
@@ -122,14 +136,14 @@
     }
     .Card-Title {
       font-size: 24px;
-      font-weight: 600;
-      line-height: 28.8px;
+      font-weight: 700;
+      line-height: 1.3;
     }
     .Card-Subtitle {
-      color: rgba(0, 0, 0, 0.55);
+      color: rgba(0, 0, 0, 0.6);
       font-size: 18px;
-      font-weight: 500;
-      line-height: 26.1px;
+      font-weight: 400;
+      line-height: 1.5;
     }
     @media (max-width: 768px) {
       .Header1 {
@@ -158,7 +172,7 @@
   <div class="Desktop">
     <!-- Full-width header -->
     <header class="Header1">
-      <div class="ChannelSix">Channel Six</div>
+      <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
       <nav class="Nav">
         <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
         <a href="https://bush.is-a.dev/Contact/">Contact</a>
@@ -171,32 +185,32 @@
 
     <!-- Bento Grid -->
     <main class="FeatureBento1">
-      <!-- Card 1 -->
-      <article class="Card1">
-        <img class="Card-Image" src="card1.png" alt="Channel 6 Logo" />
+      <!-- Card 1: Rebellion Interview -->
+      <a href="https://bush.is-a.dev/ChannelSixNews/Reports/interview001.html" class="Card Card1">
+        <img class="Card-Image" src="Reports/interview_001.png" alt="Rebellion Interview" />
         <div class="Card-Text">
-          <h2 class="Card-Title">No news found</h2>
-          <p class="Card-Subtitle">Nothing here yet.</p>
-        </div>
-      </article>
-
-      <!-- Card 2 (Linked to Report) -->
-      <a href="https://bush.is-a.dev/ChannelSixNews/Reports/Protester001" class="Card2">
-        <img class="Card-Image" src="card2.png" alt="Protesters raid" />
-        <div class="Card-Text">
-          <h2 class="Card-Title">Protesters raid and annex NBTF</h2>
-          <p class="Card-Subtitle">A story of how a group of protesters raided the NBTF</p>
+          <h2 class="Card-Title">An interview with the rebellion: are they that bad?</h2>
+          <p class="Card-Subtitle">Channel Six News spoke with Maximus about the group's origins, motivations, and goals.</p>
         </div>
       </a>
 
-      <!-- Card 3 -->
-      <article class="Card3">
-        <img class="Card-Image" src="card3.png" alt="News Banner" />
+      <!-- Card 2: Protesters Raid & Annexation -->
+      <a href="https://bush.is-a.dev/ChannelSixNews/Reports/Protester001.html" class="Card Card2">
+        <img class="Card-Image" src="card2.png" alt="Protesters raid and annex NBTF" />
         <div class="Card-Text">
-          <h2 class="Card-Title">No news found</h2>
-          <p class="Card-Subtitle">Nothing here yet.</p>
+          <h2 class="Card-Title">Protesters raid and annex NBTF</h2>
+          <p class="Card-Subtitle">A story of how a group of protesters raided the NBTF facility.</p>
         </div>
-      </article>
+      </a>
+
+      <!-- Card 3: NBTF Facility Director Interview -->
+      <a href="https://bush.is-a.dev/ChannelSixNews/Reports/Interview002.html" class="Card Card3">
+        <img class="Card-Image" src="Reports/interview002.png" alt="Facility Director Interview" />
+        <div class="Card-Text">
+          <h2 class="Card-Title">An interview with the NBTF: Their story</h2>
+          <p class="Card-Subtitle">The Facility Director speaks out on civil demands, public perception, and continuing research.</p>
+        </div>
+      </a>
     </main>
   </div>
 
