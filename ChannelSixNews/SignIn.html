@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In - Channel Six News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #111; min-height: 100vh; display: flex; flex-direction: column; }
+    .Header1 { width: 100%; padding: 24px 64px; background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%); display: flex; justify-content: space-between; align-items: center; }
+    .ChannelSix { color: #EFF6FF; font-size: 40px; font-weight: 900; text-decoration: none; }
+    .AuthCard { width: 100%; max-width: 440px; margin: 60px auto; background: white; padding: 40px; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    h2 { font-size: 26px; font-weight: 800; margin-bottom: 20px; text-align: center; }
+    .InputGroup { margin-bottom: 16px; }
+    label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #444; }
+    input { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; font-family: inherit; }
+    button { width: 100%; padding: 13px; background: #2563EB; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+    button:hover { background: #1d4ed8; }
+    .Toggle { text-align: center; margin-top: 18px; font-size: 14px; color: #666; }
+    .Toggle a { color: #2563EB; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .StatusMessage { margin-top: 14px; font-size: 14px; text-align: center; color: #dc2626; display: none; }
+    .StatusSuccess { color: #16a34a; }
+  </style>
+</head>
+<body>
+  <header class="Header1">
+    <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+  </header>
+  <div class="AuthCard">
+    <h2 id="formTitle">Sign In</h2>
+    <div class="InputGroup" id="usernameGroup" style="display: none;">
+      <label>Display Username</label>
+      <input type="text" id="usernameInput" placeholder="BushDev" />
+    </div>
+    <div class="InputGroup">
+      <label>Email</label>
+      <input type="email" id="emailInput" placeholder="reporter@domain.com" required />
+    </div>
+    <div class="InputGroup">
+      <label>Password</label>
+      <input type="password" id="passwordInput" placeholder="••••••••••••" required />
+    </div>
+    <button id="authBtn">Sign In</button>
+    <div id="statusMsg" class="StatusMessage"></div>
+    <div class="Toggle">
+      <span id="toggleText">Need an account?</span>
+      <a id="toggleLink">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://bnkkitwvxdyywrxszedf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJua2tpdHd2eGR5eXdyeHN6ZWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MTAwMjksImV4cCI6MjA5OTM4NjAyOX0.SZrDrnHi0N_wErr2U3enY0Y97L2HHxzZSF0dhiWegwo";
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let isSignUp = false;
+    const formTitle = document.getElementById('formTitle');
+    const usernameGroup = document.getElementById('usernameGroup');
+    const authBtn = document.getElementById('authBtn');
+    const toggleText = document.getElementById('toggleText');
+    const toggleLink = document.getElementById('toggleLink');
+    const statusMsg = document.getElementById('statusMsg');
+
+    toggleLink.addEventListener('click', () => {
+      isSignUp = !isSignUp;
+      formTitle.textContent = isSignUp ? 'Create an Account' : 'Sign In';
+      authBtn.textContent = isSignUp ? 'Sign Up' : 'Sign In';
+      usernameGroup.style.display = isSignUp ? 'block' : 'none';
+      toggleText.textContent = isSignUp ? 'Already have an account?' : 'Need an account?';
+      toggleLink.textContent = isSignUp ? 'Sign In' : 'Sign Up';
+      statusMsg.style.display = 'none';
+    });
+
+    authBtn.addEventListener('click', async () => {
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value;
+      const username = document.getElementById('usernameInput').value.trim();
+
+      statusMsg.className = 'StatusMessage';
+      statusMsg.style.display = 'none';
+
+      if (!email || !password) {
+        statusMsg.textContent = 'Please enter an email and password.';
+        statusMsg.style.display = 'block';
+        return;
+      }
+
+      if (isSignUp) {
+        if (!username) {
+          statusMsg.textContent = 'Please choose a display username.';
+          statusMsg.style.display = 'block';
+          return;
+        }
+        const { data, error } = await client.auth.signUp({
+          email,
+          password,
+          options: { data: { display_name: username } }
+        });
+        if (error) {
+          statusMsg.textContent = error.message;
+          statusMsg.style.display = 'block';
+        } else {
+          if (data.user) {
+            await client.from('c6_profiles').insert([{ id: data.user.id, username }]);
+          }
+          statusMsg.className = 'StatusMessage StatusSuccess';
+          statusMsg.textContent = 'Account created! Redirecting to Channel Six...';
+          statusMsg.style.display = 'block';
+          setTimeout(() => { window.location.href = 'https://bush.is-a.dev/ChannelSixNews/'; }, 1500);
+        }
+      } else {
+        const { error } = await client.auth.signInWithPassword({ email, password });
+        if (error) {
+          statusMsg.textContent = error.message;
+          statusMsg.style.display = 'block';
+        } else {
+          statusMsg.className = 'StatusMessage StatusSuccess';
+          statusMsg.textContent = 'Signed in successfully! Redirecting...';
+          statusMsg.style.display = 'block';
+          setTimeout(() => { window.location.href = 'https://bush.is-a.dev/ChannelSixNews/'; }, 1000);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
