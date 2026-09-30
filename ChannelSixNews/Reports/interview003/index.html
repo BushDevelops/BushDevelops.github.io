@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>An interview with the NBTF: STF [REDACTED] - Channel Six News</title>
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/" />
+  <meta property="og:title" content="An interview with the NBTF: STF [REDACTED]" />
+  <meta property="og:description" content="Channel Six News spoke with STF [REDACTED] about the military's purpose in the NBTF, core security operations, and recent resistance threats." />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
+  <meta name="theme-color" content="#2563EB" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="An interview with the NBTF: STF [REDACTED]" />
+  <meta name="twitter:description" content="Channel Six News spoke with STF [REDACTED] about the military's purpose in the NBTF, core security operations, and recent resistance threats." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F9FA;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Full-width header matching index.html */
+    .Header1 {
+      width: 100%;
+      padding: 24px 64px;
+      background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ChannelSix {
+      color: white;
+      font-size: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .Nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .Nav a {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .Nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Article layout */
+    .ArticleContainer {
+      width: 100%;
+      max-width: 900px;
+      padding: 48px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .StoryImage {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    /* Reactions Bar */
+    .ReactionsBar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 0 12px;
+    }
+
+    .ReactionBtn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4B5563;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .ReactionBtn:hover {
+      border-color: #CBD5E1;
+      background: #F1F5F9;
+    }
+
+    .ReactionBtn.active {
+      background: #EFF6FF;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+
+    .ReactionBtn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .Topic {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .Headline {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+
+    .StoryBody {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #222;
+      margin-top: 8px;
+    }
+
+    .Lead {
+      font-size: 19px;
+      font-weight: 500;
+      color: #2D3748;
+      margin-bottom: 28px;
+    }
+
+    .Question {
+      font-weight: 600;
+      color: #1A202C;
+      margin-top: 24px;
+      margin-bottom: 6px;
+    }
+
+    .Answer {
+      font-style: italic;
+      color: #2D3748;
+      margin-bottom: 12px;
+    }
+
+    /* Clean white editorial notes */
+    .Note {
+      font-size: 16px;
+      color: #475569;
+      background: #FFFFFF;
+      border-left: 3px solid #CBD5E1;
+      padding: 10px 16px;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .Reporters {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #E2E8F0;
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #111;
+      text-transform: uppercase;
+    }
+
+    .Reporters span {
+      display: block;
+      font-weight: 600;
+      color: #444;
+      text-transform: none;
+      margin-top: 4px;
+    }
+
+    /* Comments Section */
+    .CommentsSection {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 2px solid #E2E8F0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .CommentsTitle {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .CommentsCount {
+      font-size: 20px;
+      font-weight: 600;
+      color: #64748B;
+    }
+
+    .CommentBox {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .CommentHeaderStatus {
+      font-size: 14px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .AvatarDot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .CommentTextarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 15px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      resize: vertical;
+      background: #FFFFFF;
+      color: #0F172A;
+    }
+
+    .CommentTextarea:focus {
+      outline: none;
+      border-color: #2563EB;
+    }
+
+    .CommentSubmitRow {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .CommentSubmitBtn {
+      background: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .CommentSubmitBtn:hover {
+      background: #1D4ED8;
+    }
+
+    .CommentsList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .CommentItem {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .CommentHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #64748B;
+    }
+
+    .CommentUsername {
+      font-weight: 700;
+      color: #0F172A;
+      font-size: 15px;
+    }
+
+    .CommentBody {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #334155;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .Header1 { padding: 20px 24px; }
+      .ChannelSix { font-size: 34px; }
+      .Nav { gap: 16px; }
+      .Headline { font-size: 32px; }
+      .Topic { font-size: 20px; }
+      .StoryBody { font-size: 17px; }
+      .Lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="Header1">
+    <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+    <nav class="Nav">
+      <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
+      <a href="https://bush.is-a.dev/Contact/">Contact</a>
+      <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign In</a>
+    </nav>
+  </header>
+
+  <main class="ArticleContainer">
+    <img src="interview003.png" alt="STF [REDACTED] Interview" class="StoryImage" />
+
+    <div class="ReactionsBar">
+      <button class="ReactionBtn" id="likeBtn">
+        <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+        <span>0 Likes</span>
+      </button>
+      <button class="ReactionBtn" id="dislikeBtn">
+        <svg viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.37-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+        <span>0 Dislikes</span>
+      </button>
+    </div>
+
+    <div class="Topic">Topic: NBTF</div>
+
+    <h1 class="Headline">An interview with the NBTF: STF [REDACTED]</h1>
+
+    <article class="StoryBody">
+      <p class="Lead">
+        Channel Six News spoke with STF [REDACTED] of the Special Task Force about their purpose within the Facility, operations around the core, and recent incidents. Here is our full conversation log:
+      </p>
+
+      <p class="Question"><strong>Channel Six:</strong> So, what is the military's purpose in the NBTF?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “We are hired to protect the interests of the Facility, namely by providing a more capable response force to resistance threats within the Facility, especially around the core.”</p>
+      <p class="Note">The military's primary role is to protect the Facility and respond to resistance threats, particularly those involving the core.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What is it like inside of the Facility?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “It's honestly... don't tell the Facility executives I said this... it's a little crazy. We have rebels running around, and people keep getting sick. That's why it's mandated to carry RadAway.”</p>
+      <p class="Note">The military member describes the Facility as dangerous, citing rebel activity and radiation-related illnesses among personnel.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What is the purpose of the Special Task Force specifically?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “We are the most elite fighters of the military, and we are meant for quick and effective response and neutralization. I've seen... some things in my time.”</p>
+      <p class="Note">The Special Task Force is described as an elite unit intended to respond quickly to serious threats within the Facility.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What is your favorite mission?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “My favorite mission would be when I got to plan and lead an effective assault on the core, and through teamwork and coordination, we managed to secure it and prevent a meltdown.<br><br>“The rebels had managed to disable the core safety protocols and were close to destabilizing it.”</p>
+      <p class="Note">The military member recalls leading an assault on the core after rebels allegedly disabled its safety protocols and came close to destabilizing it.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> Anything the viewers should know?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “Be careful of where you step, stay away from the testing field, very far away, and don't see things as always black and white.”</p>
+      <p class="Note">The military member warns viewers about the testing field and suggests that situations inside the Facility may be more complicated than they initially appear.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> Would you like to respond on the most recent incidents that have occurred?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “I'm not sure I'm allowed to, but I'll say it anyway.<br><br>“We've had multiple attempts at resistance threats within the Facility recently, with some even getting all the codes for the core... we've also had some traitors recently.<br><br>“I promise you, I am not an undercover rebel right now...”</p>
+      <p class="Note">The military member claims that recent resistance attempts have included efforts to obtain the core's access codes and says the Facility has also dealt with suspected traitors.</p>
+
+      <p class="Question"><strong>Channel Six:</strong> What would you like to accomplish for the NBTF in the future?</p>
+      <p class="Answer"><strong>STF [REDACTED]:</strong> “I'd like to plan an effective response against rebel raids to earn my payche- I mean, end this conflict. It's been quite heavy in casualties...”</p>
+      <p class="Note">The military member says they hope to help end the conflict and reduce the casualties caused by continued fighting.</p>
+
+      <div class="Reporters">
+        Reporters on Site
+        <span>BushDev</span>
+      </div>
+    </article>
+
+    <section class="CommentsSection">
+      <div class="CommentsTitle">
+        Reader Comments
+        <span class="CommentsCount" id="commentCount">(0)</span>
+      </div>
+
+      <div class="CommentBox">
+        <div class="CommentHeaderStatus" id="commentUserHeader">
+          <span>Loading sign in status...</span>
+        </div>
+        <textarea id="commentInput" class="CommentTextarea" placeholder="Share your thoughts on this report..."></textarea>
+        <div class="CommentSubmitRow">
+          <button id="postCommentBtn" class="CommentSubmitBtn">Post Comment</button>
+        </div>
+      </div>
+
+      <div class="CommentsList" id="commentsList"></div>
+    </section>
+  </main>
+
+  <script>
+    const SUPABASE_URL = "https://bnkkitwvxdyywrxszedf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJua2tpdHd2eGR5eXdyeHN6ZWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MTAwMjksImV4cCI6MjA5OTM4NjAyOX0.SZrDrnHi0N_wErr2U3enY0Y97L2HHxzZSF0dhiWegwo";
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const ARTICLE_SLUG = "interview003";
+
+    let currentUser = null;
+    let currentProfile = null;
+
+    function getClientId() {
+      let id = localStorage.getItem('c6_client_id');
+      if (!id) {
+        id = 'anon_' + Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('c6_client_id', id);
+      }
+      return id;
+    }
+
+    async function init() {
+      const { data: { session } } = await client.auth.getSession();
+      const userHeader = document.getElementById('commentUserHeader');
+      const submitBtn = document.getElementById('postCommentBtn');
+
+      if (session && session.user) {
+        currentUser = session.user;
+        const { data: profile } = await client.from('c6_profiles').select('*').eq('id', currentUser.id).maybeSingle();
+        
+        let username = profile?.username || currentUser.user_metadata?.display_name || 'BushDev';
+        currentProfile = { username };
+
+        if (!profile) {
+          try {
+            await client.from('c6_profiles').upsert([{ id: currentUser.id, username }]);
+          } catch (e) {
+            console.error('Could not auto-save profile:', e);
+          }
+        }
+
+        userHeader.innerHTML = '';
+        const dot = document.createElement('div');
+        dot.className = 'AvatarDot';
+        dot.textContent = currentProfile.username.slice(0, 2).toUpperCase();
+
+        const label = document.createElement('span');
+        label.textContent = 'Commenting as ';
+        const strong = document.createElement('strong');
+        strong.textContent = currentProfile.username;
+        label.appendChild(strong);
+
+        userHeader.appendChild(dot);
+        userHeader.appendChild(label);
+      } else {
+        userHeader.innerHTML = `
+          <span><a href="https://bush.is-a.dev/ChannelSixNews/SignIn/" style="color:#2563EB;font-weight:600;text-decoration:none;">Sign in</a> to join the conversation</span>
+        `;
+        submitBtn.textContent = 'Sign In to Comment';
+        submitBtn.onclick = () => { window.location.href = 'https://bush.is-a.dev/ChannelSixNews/SignIn/'; };
+      }
+
+      await loadComments();
+      await loadReactions();
+    }
+
+    async function loadComments() {
+      const { data: comments } = await client
+        .from('c6_comments')
+        .select('*')
+        .eq('article_slug', ARTICLE_SLUG)
+        .order('created_at', { ascending: false });
+
+      document.getElementById('commentCount').textContent = `(${comments ? comments.length : 0})`;
+      const list = document.getElementById('commentsList');
+      list.innerHTML = '';
+
+      if (comments && comments.length > 0) {
+        comments.forEach(c => {
+          const item = document.createElement('div');
+          item.className = 'CommentItem';
+
+          const header = document.createElement('div');
+          header.className = 'CommentHeader';
+
+          const usernameSpan = document.createElement('span');
+          usernameSpan.className = 'CommentUsername';
+          usernameSpan.textContent = c.username;
+
+          const dateSpan = document.createElement('span');
+          dateSpan.textContent = new Date(c.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+          header.appendChild(usernameSpan);
+          header.appendChild(dateSpan);
+
+          const body = document.createElement('p');
+          body.className = 'CommentBody';
+          body.textContent = c.content;
+
+          item.appendChild(header);
+          item.appendChild(body);
+          list.appendChild(item);
+        });
+      }
+    }
+
+    document.getElementById('postCommentBtn').addEventListener('click', async () => {
+      if (!currentUser) return;
+      const textarea = document.getElementById('commentInput');
+      const content = textarea.value.trim();
+      if (!content) return;
+
+      await client.from('c6_comments').insert([{
+        article_slug: ARTICLE_SLUG,
+        user_id: currentUser.id,
+        username: currentProfile.username,
+        content: content
+      }]);
+
+      textarea.value = '';
+      await loadComments();
+    });
+
+    async function loadReactions() {
+      const { data } = await client.from('c6_reactions').select('reaction_type, user_id, client_id').eq('article_slug', ARTICLE_SLUG);
+      const likes = data ? data.filter(r => r.reaction_type === 'like').length : 0;
+      const dislikes = data ? data.filter(r => r.reaction_type === 'dislike').length : 0;
+      
+      const likeBtn = document.getElementById('likeBtn');
+      const dislikeBtn = document.getElementById('dislikeBtn');
+      likeBtn.querySelector('span').textContent = `${likes} Likes`;
+      dislikeBtn.querySelector('span').textContent = `${dislikes} Dislikes`;
+
+      const cid = getClientId();
+      const myReaction = data?.find(r => (currentUser && r.user_id === currentUser.id) || (!currentUser && r.client_id === cid));
+      likeBtn.classList.toggle('active', myReaction?.reaction_type === 'like');
+      dislikeBtn.classList.toggle('active', myReaction?.reaction_type === 'dislike');
+    }
+
+    async function sendReaction(type) {
+      const cid = getClientId();
+      const payload = {
+        article_slug: ARTICLE_SLUG,
+        reaction_type: type,
+        user_id: currentUser ? currentUser.id : null,
+        client_id: currentUser ? null : cid
+      };
+
+      await client.from('c6_reactions').upsert(payload, {
+        onConflict: currentUser ? 'article_slug, user_id' : 'article_slug, client_id'
+      });
+      await loadReactions();
+    }
+
+    document.getElementById('likeBtn').addEventListener('click', () => sendReaction('like'));
+    document.getElementById('dislikeBtn').addEventListener('click', () => sendReaction('dislike'));
+
+    init();
+  </script>
+</body>
+</html>
