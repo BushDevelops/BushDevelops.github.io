@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAWSUIT001: Letter of Intent to Sue Pyrowh Corp & NBTF - Channel Six News</title>
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/LAWSUIT001/" />
+  <meta property="og:title" content="LAWSUIT001: Letter of Intent to Sue Pyrowh Corporation & NBTF" />
+  <meta property="og:description" content="Channel Six News Corp. formally notifies Pyrowh Corporation and the Nuclear Bomb Testing Facility of intent to initiate legal proceedings concerning human rights violations." />
+  <meta name="theme-color" content="#2563EB" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LAWSUIT001: Letter of Intent to Sue Pyrowh Corporation & NBTF" />
+  <meta name="twitter:description" content="Channel Six News Corp. issues a formal Letter of Intent to Sue Pyrowh Corporation and the NBTF." />
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F9FA;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Full-width header matching index.html */
+    .Header1 {
+      width: 100%;
+      padding: 24px 64px;
+      background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ChannelSix {
+      color: white;
+      font-size: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .Nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .Nav a {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .Nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Article layout */
+    .ArticleContainer {
+      width: 100%;
+      max-width: 900px;
+      padding: 48px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Reactions Bar */
+    .ReactionsBar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 0 12px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .ReactionBtn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4B5563;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .ReactionBtn:hover {
+      border-color: #CBD5E1;
+      background: #F1F5F9;
+    }
+
+    .ReactionBtn.active {
+      background: #EFF6FF;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+
+    .ReactionBtn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .Topic {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .Headline {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+
+    /* Formal Legal Document Sheet */
+    .LegalDoc {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 48px 48px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      line-height: 1.75;
+      font-size: 16px;
+      color: #1E293B;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .DocHeader {
+      text-align: center;
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 20px;
+      margin-bottom: 8px;
+    }
+
+    .DocTitle {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #0F172A;
+      text-transform: uppercase;
+    }
+
+    .DocSubtitle {
+      font-size: 14px;
+      color: #64748B;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .AddressBlock {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .AddressBlock strong {
+      color: #0F172A;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .DocSubject {
+      font-weight: 800;
+      font-size: 17px;
+      color: #0F172A;
+      padding: 12px 0;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .DocSalutation {
+      font-weight: 700;
+      color: #0F172A;
+      margin-top: 4px;
+    }
+
+    .DocParagraph {
+      text-align: justify;
+      color: #334155;
+    }
+
+    .DocSignature {
+      margin-top: 24px;
+      line-height: 1.5;
+    }
+
+    .DocSignature strong {
+      color: #0F172A;
+      font-size: 18px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* Comments Section */
+    .CommentsSection {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 2px solid #E2E8F0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .CommentsTitle {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .CommentsCount {
+      font-size: 20px;
+      font-weight: 600;
+      color: #64748B;
+    }
+
+    .CommentBox {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .CommentHeaderStatus {
+      font-size: 14px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .AvatarDot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .CommentTextarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 15px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      resize: vertical;
+      background: #FFFFFF;
+      color: #0F172A;
+    }
+
+    .CommentTextarea:focus {
+      outline: none;
+      border-color: #2563EB;
+    }
+
+    .CommentSubmitRow {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .CommentSubmitBtn {
+      background: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .CommentSubmitBtn:hover {
+      background: #1D4ED8;
+    }
+
+    .CommentsList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .CommentItem {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .CommentHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #64748B;
+    }
+
+    .CommentUsername {
+      font-weight: 700;
+      color: #0F172A;
+      font-size: 15px;
+    }
+
+    .CommentBody {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #334155;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .Header1 { padding: 20px 24px; }
+      .ChannelSix { font-size: 34px; }
+      .Nav { gap: 16px; }
+      .Headline { font-size: 30px; }
+      .LegalDoc { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="Header1">
+    <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+    <nav class="Nav">
+      <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
+      <a href="https://bush.is-a.dev/Contact/">Contact</a>
+      <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign In</a>
+    </nav>
+  </header>
+
+  <main class="ArticleContainer">
+    <div class="Topic">Topic: Legal / Investigation</div>
+
+    <h1 class="Headline">Letter of Intent to Sue Pyrowh Corporation & NBTF</h1>
+
+    <div class="ReactionsBar">
+      <button class="ReactionBtn" id="likeBtn">
+        <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+        <span>0 Likes</span>
+      </button>
+      <button class="ReactionBtn" id="dislikeBtn">
+        <svg viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.37-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+        <span>0 Dislikes</span>
+      </button>
+    </div>
+
+    <!-- Official Legal Document Card -->
+    <article class="LegalDoc">
+      <div class="DocHeader">
+        <div class="DocTitle">Letter of Intent to Sue</div>
+        <div class="DocSubtitle">Channel Six News Corp. &bull; Legal Department</div>
+      </div>
+
+      <div class="AddressBlock">
+        <strong>From:</strong>
+        Channel Six News Corp.<br>
+        1427 Channel Six Road<br>
+        Black Mesa Desert, New Mexico 87019<br>
+        United States<br>
+        <br>
+        <em>September 30, 2026</em>
+      </div>
+
+      <div class="AddressBlock">
+        <strong>To:</strong>
+        Pyrowh Corporation<br>
+        Nuclear Bomb Testing Facility (NBTF)<br>
+        1 Nuclear Research Access Road<br>
+        Facility Sector 01<br>
+        Black Mesa, New Mexico 87021<br>
+        United States
+      </div>
+
+      <div class="DocSubject">
+        RE: Notice of Intent to Initiate Legal Proceedings
+      </div>
+
+      <div class="DocSalutation">
+        Dear Pyrowh Corporation and Nuclear Bomb Testing Facility Administration:
+      </div>
+
+      <p class="DocParagraph">
+        Channel Six News Corp. is writing to formally notify you of its intent to commence legal action concerning alleged violations of human rights affecting rebels, civilians, and members of NBTF staff.
+      </p>
+
+      <p class="DocParagraph">
+        Channel Six News Corp. intends to seek compensation and other appropriate remedies in connection with these allegations. The conduct at issue has raised serious concerns regarding the treatment and safety of individuals affected by the Nuclear Bomb Testing Facility.
+      </p>
+
+      <p class="DocParagraph">
+        To resolve this matter without further proceedings, Channel Six News Corp. is formally demanding $5,000,000 USD in monetary compensation.
+      </p>
+
+      <p class="DocParagraph">
+        Please consider this letter a formal demand for settlement and notice of Channel Six News Corp.'s intent to pursue legal proceedings. A formal complaint may be filed if an acceptable resolution cannot be reached.
+      </p>
+
+      <p class="DocParagraph">
+        Channel Six News Corp. further requests that all relevant records, communications, reports, security reports, testing records, and other materials relating to the matters described above be preserved.
+      </p>
+
+      <p class="DocParagraph">
+        Channel Six News Corp. reserves all rights and remedies available to it.
+      </p>
+
+      <div class="DocSignature">
+        Sincerely,<br>
+        <strong>BushDev</strong>
+        News Executive<br>
+        Channel Six News Corp.
+      </div>
+    </article>
+
+    <section class="CommentsSection">
+      <div class="CommentsTitle">
+        Reader Comments
+        <span class="CommentsCount" id="commentCount">(0)</span>
+      </div>
+
+      <div class="CommentBox">
+        <div class="CommentHeaderStatus" id="commentUserHeader">
+          <span>Loading sign in status...</span>
+        </div>
+        <textarea id="commentInput" class="CommentTextarea" placeholder="Share your thoughts on this lawsuit..."></textarea>
+        <div class="CommentSubmitRow">
+          <button id="postCommentBtn" class="CommentSubmitBtn">Post Comment</button>
+        </div>
+      </div>
+
+      <div class="CommentsList" id="commentsList"></div>
+    </section>
+  </main>
+
+  <script>
+    const SUPABASE_URL = "https://bnkkitwvxdyywrxszedf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJua2tpdHd2eGR5eXdyeHN6ZWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MTAwMjksImV4cCI6MjA5OTM4NjAyOX0.SZrDrnHi0N_wErr2U3enY0Y97L2HHxzZSF0dhiWegwo";
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const ARTICLE_SLUG = "LAWSUIT001";
+
+    let currentUser = null;
+    let currentProfile = null;
+
+    function getClientId() {
+      let id = localStorage.getItem('c6_client_id');
+      if (!id) {
+        id = 'anon_' + Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('c6_client_id', id);
+      }
+      return id;
+    }
+
+    async function init() {
+      const { data: { session } } = await client.auth.getSession();
+      const userHeader = document.getElementById('commentUserHeader');
+      const submitBtn = document.getElementById('postCommentBtn');
+
+      if (session && session.user) {
+        currentUser = session.user;
+        const { data: profile } = await client.from('c6_profiles').select('*').eq('id', currentUser.id).maybeSingle();
+        
+        let username = profile?.username || currentUser.user_metadata?.display_name || 'BushDev';
+        currentProfile = { username };
+
+        if (!profile) {
+          try {
+            await client.from('c6_profiles').upsert([{ id: currentUser.id, username }]);
+          } catch (e) {
+            console.error('Could not auto-save profile:', e);
+          }
+        }
+
+        userHeader.innerHTML = '';
+        const dot = document.createElement('div');
+        dot.className = 'AvatarDot';
+        dot.textContent = currentProfile.username.slice(0, 2).toUpperCase();
+
+        const label = document.createElement('span');
+        label.textContent = 'Commenting as ';
+        const strong = document.createElement('strong');
+        strong.textContent = currentProfile.username;
+        label.appendChild(strong);
+
+        userHeader.appendChild(dot);
+        userHeader.appendChild(label);
+      } else {
+        userHeader.innerHTML = `
+          <span><a href="https://bush.is-a.dev/ChannelSixNews/SignIn/" style="color:#2563EB;font-weight:600;text-decoration:none;">Sign in</a> to join the conversation</span>
+        `;
+        submitBtn.textContent = 'Sign In to Comment';
+        submitBtn.onclick = () => { window.location.href = 'https://bush.is-a.dev/ChannelSixNews/SignIn/'; };
+      }
+
+      await loadComments();
+      await loadReactions();
+    }
+
+    async function loadComments() {
+      const { data: comments } = await client
+        .from('c6_comments')
+        .select('*')
+        .eq('article_slug', ARTICLE_SLUG)
+        .order('created_at', { ascending: false });
+
+      document.getElementById('commentCount').textContent = `(${comments ? comments.length : 0})`;
+      const list = document.getElementById('commentsList');
+      list.innerHTML = '';
+
+      if (comments && comments.length > 0) {
+        comments.forEach(c => {
+          const item = document.createElement('div');
+          item.className = 'CommentItem';
+
+          const header = document.createElement('div');
+          header.className = 'CommentHeader';
+
+          const usernameSpan = document.createElement('span');
+          usernameSpan.className = 'CommentUsername';
+          usernameSpan.textContent = c.username;
+
+          const dateSpan = document.createElement('span');
+          dateSpan.textContent = new Date(c.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+          header.appendChild(usernameSpan);
+          header.appendChild(dateSpan);
+
+          const body = document.createElement('p');
+          body.className = 'CommentBody';
+          body.textContent = c.content;
+
+          item.appendChild(header);
+          item.appendChild(body);
+          list.appendChild(item);
+        });
+      }
+    }
+
+    document.getElementById('postCommentBtn').addEventListener('click', async () => {
+      if (!currentUser) return;
+      const textarea = document.getElementById('commentInput');
+      const content = textarea.value.trim();
+      if (!content) return;
+
+      await client.from('c6_comments').insert([{
+        article_slug: ARTICLE_SLUG,
+        user_id: currentUser.id,
+        username: currentProfile.username,
+        content: content
+      }]);
+
+      textarea.value = '';
+      await loadComments();
+    });
+
+    async function loadReactions() {
+      const { data } = await client.from('c6_reactions').select('reaction_type, user_id, client_id').eq('article_slug', ARTICLE_SLUG);
+      const likes = data ? data.filter(r => r.reaction_type === 'like').length : 0;
+      const dislikes = data ? data.filter(r => r.reaction_type === 'dislike').length : 0;
+      
+      const likeBtn = document.getElementById('likeBtn');
+      const dislikeBtn = document.getElementById('dislikeBtn');
+      likeBtn.querySelector('span').textContent = `${likes} Likes`;
+      dislikeBtn.querySelector('span').textContent = `${dislikes} Dislikes`;
+
+      const cid = getClientId();
+      const myReaction = data?.find(r => (currentUser && r.user_id === currentUser.id) || (!currentUser && r.client_id === cid));
+      likeBtn.classList.toggle('active', myReaction?.reaction_type === 'like');
+      dislikeBtn.classList.toggle('active', myReaction?.reaction_type === 'dislike');
+    }
+
+    async function sendReaction(type) {
+      const cid = getClientId();
+      const payload = {
+        article_slug: ARTICLE_SLUG,
+        reaction_type: type,
+        user_id: currentUser ? currentUser.id : null,
+        client_id: currentUser ? null : cid
+      };
+
+      await client.from('c6_reactions').upsert(payload, {
+        onConflict: currentUser ? 'article_slug, user_id' : 'article_slug, client_id'
+      });
+      await loadReactions();
+    }
+
+    document.getElementById('likeBtn').addEventListener('click', () => sendReaction('like'));
+    document.getElementById('dislikeBtn').addEventListener('click', () => sendReaction('dislike'));
+
+    init();
+  </script>
+</body>
+</html>
