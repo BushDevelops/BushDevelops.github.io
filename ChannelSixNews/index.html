@@ -10,8 +10,16 @@
   <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/" />
   <meta property="og:title" content="Channel Six News" />
   <meta property="og:description" content="Channel Six News - Reporting on the NBTF facility, civilian protests, and the rebellion." />
-  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/card2.png" />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
+  <meta property="og:image:width" content="1072" />
+  <meta property="og:image:height" content="612" />
   <meta name="theme-color" content="#2563EB" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Channel Six News" />
+  <meta name="twitter:description" content="Channel Six News - Reporting on the NBTF facility, civilian protests, and the rebellion." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
 
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +104,7 @@
       margin-bottom: 32px;
     }
 
-    /* 3-Column Interview Grid */
+    /* 3-Column Headlines Grid */
     .HeadlinesGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -126,6 +134,74 @@
       display: block;
       border: 1px solid rgba(0,0,0,0.08);
       box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    /* Lawsuit Document Thumbnail Preview */
+    .DocThumbnail {
+      width: 100%;
+      height: 240px;
+      background: #F8FAFC;
+      border-radius: 14px;
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .DocThumbnail::before {
+      content: "LEGAL NOTICE";
+      position: absolute;
+      top: 14px;
+      right: -32px;
+      background: #EF4444;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 4px 36px;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .DocThumbnailHeader {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .DocThumbnailTitle {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.3;
+    }
+
+    .DocThumbnailLines {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .DocThumbnailLine {
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: 3px;
+    }
+
+    .DocThumbnailFooter {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 8px;
     }
 
     .Card-Text {
@@ -166,12 +242,19 @@
       margin-bottom: 32px;
     }
 
-    .ReportBannerCard {
+    .ReportsGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .ReportCard {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
       border-radius: 16px;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04);
       text-decoration: none;
       color: inherit;
@@ -179,38 +262,36 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .ReportBannerCard:hover {
+    .ReportCard:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
-    .ReportBannerImage {
-      width: 440px;
-      height: 260px;
+    .ReportCardImage {
+      width: 100%;
+      height: 240px;
       object-fit: cover;
-      flex-shrink: 0;
       display: block;
     }
 
-    .ReportBannerContent {
-      padding: 32px 36px;
+    .ReportCardContent {
+      padding: 24px 28px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 12px;
+      gap: 8px;
     }
 
-    .ReportBannerTitle {
-      font-size: 28px;
+    .ReportCardTitle {
+      font-size: 22px;
       font-weight: 800;
       color: #0F172A;
-      line-height: 1.25;
+      line-height: 1.3;
     }
 
-    .ReportBannerDesc {
-      font-size: 16px;
+    .ReportCardDesc {
+      font-size: 15px;
       color: #64748B;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* Responsive adjustments */
@@ -218,12 +299,8 @@
       .HeadlinesGrid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .ReportBannerCard {
-        flex-direction: column;
-      }
-      .ReportBannerImage {
-        width: 100%;
-        height: 240px;
+      .ReportsGrid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -250,11 +327,9 @@
       .HeadlinesGrid {
         grid-template-columns: 1fr;
       }
-      .Card-Image {
+      .Card-Image,
+      .DocThumbnail {
         height: 200px;
-      }
-      .ReportBannerContent {
-        padding: 20px 24px;
       }
     }
   </style>
@@ -275,12 +350,24 @@
       <h1 class="HeadlinesToday">HEADLINES TODAY</h1>
 
       <div class="HeadlinesGrid">
-        <!-- Card 1: Rebellion Interview -->
-        <a href="Reports/interview001/" class="Card">
-          <img class="Card-Image" src="Reports/interview001/interview_001.png" alt="Rebellion Interview" />
+        <!-- Card 1: Fictional Lawsuit (Doc Thumbnail) -->
+        <a href="Reports/LAWSUIT001/" class="Card">
+          <div class="DocThumbnail">
+            <div class="DocThumbnailHeader">Channel Six News Corp. &bull; Legal</div>
+            <div class="DocThumbnailTitle">LETTER OF INTENT TO SUE: PYROWH CORP / NBTF</div>
+            <div class="DocThumbnailLines">
+              <div class="DocThumbnailLine" style="width: 85%;"></div>
+              <div class="DocThumbnailLine" style="width: 100%;"></div>
+              <div class="DocThumbnailLine" style="width: 70%;"></div>
+            </div>
+            <div class="DocThumbnailFooter">
+              <span>Demand: $5,000,000 USD</span>
+              <span>Sept 30, 2026</span>
+            </div>
+          </div>
           <div class="Card-Text">
-            <h2 class="Card-Title">An interview with the rebellion: are they that bad?</h2>
-            <p class="Card-Subtitle">Channel Six News spoke with Maximus about origins and motives.</p>
+            <h2 class="Card-Title">Notice of Intent to Initiate Legal Proceedings</h2>
+            <p class="Card-Subtitle">Channel Six News Corp. formally demands compensation over NBTF facility human rights concerns.</p>
           </div>
         </a>
 
@@ -308,13 +395,25 @@
     <section class="ReportsSection">
       <h2 class="ReportsHeading">NEWS REPORTS</h2>
 
-      <a href="Reports/Protester001/" class="ReportBannerCard">
-        <img class="ReportBannerImage" src="card2.png" alt="Protesters raid and annex NBTF" />
-        <div class="ReportBannerContent">
-          <h3 class="ReportBannerTitle">Protesters raid and annex NBTF</h3>
-          <p class="ReportBannerDesc">A story of how a group of protesters raided the NBTF facility.</p>
-        </div>
-      </a>
+      <div class="ReportsGrid">
+        <!-- Report 1: Protesters Annex Facility -->
+        <a href="Reports/Protester001/" class="ReportCard">
+          <img class="ReportCardImage" src="card2.png" alt="Protesters raid and annex NBTF" />
+          <div class="ReportCardContent">
+            <h3 class="ReportCardTitle">Protesters raid and annex NBTF</h3>
+            <p class="ReportCardDesc">A story of how a group of protesters raided the NBTF facility.</p>
+          </div>
+        </a>
+
+        <!-- Report 2: Rebellion Interview (Moved here) -->
+        <a href="Reports/interview001/" class="ReportCard">
+          <img class="ReportCardImage" src="Reports/interview001/interview_001.png" alt="Rebellion Interview" />
+          <div class="ReportCardContent">
+            <h3 class="ReportCardTitle">An interview with the rebellion: are they that bad?</h3>
+            <p class="ReportCardDesc">Channel Six News spoke with Maximus about origins and motives.</p>
+          </div>
+        </a>
+      </div>
     </section>
   </div>
 </body>
