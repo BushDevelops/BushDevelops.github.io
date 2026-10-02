@@ -101,68 +101,68 @@
       line-height: 1.15;
       letter-spacing: -1px;
       color: #0F172A;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
-    /* Single Lead Hero Story */
-    .LeadHeroCard {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 18px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 36px;
+    /* Original Base Card */
+    .Card {
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
-    .LeadHeroCard:hover {
+    .Card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
-      border-color: #CBD5E1;
     }
 
-    /* Document Graphic Thumbnail */
+    .Card-Image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    /* Clean Lawsuit Document Thumbnail */
     .DocThumbnail {
-      background: #FFFFFF;
+      width: 100%;
+      height: 240px;
+      background: #F8FAFC;
+      border-radius: 14px;
       border: 1px solid #CBD5E1;
-      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
       padding: 24px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 240px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .DocThumbnailHeader {
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
+      font-weight: 700;
+      color: #64748B;
       text-transform: uppercase;
-      color: #2563EB;
-      border-bottom: 2px solid #2563EB;
-      padding-bottom: 8px;
+      letter-spacing: 1px;
     }
 
     .DocThumbnailTitle {
-      font-size: 16px;
-      font-weight: 900;
-      line-height: 1.3;
+      font-size: 17px;
+      font-weight: 800;
       color: #0F172A;
-      margin: 14px 0 10px;
-      letter-spacing: -0.2px;
+      line-height: 1.3;
     }
 
     .DocThumbnailLines {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-bottom: 12px;
     }
 
     .DocThumbnailLine {
@@ -172,58 +172,58 @@
     }
 
     .DocThumbnailFooter {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
-      font-weight: 700;
-      color: #64748B;
       border-top: 1px solid #E2E8F0;
-      padding-top: 10px;
+      padding-top: 8px;
     }
 
-    /* Lead Story Text Content */
-    .LeadHeroContent {
+    .Card-Text {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 12px;
+      gap: 8px;
     }
 
-    .LeadTag {
-      align-self: flex-start;
-      background: #EFF6FF;
-      color: #2563EB;
-      border: 1px solid #BFDBFE;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .LeadTitle {
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
+    .Card-Title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
       color: #0F172A;
     }
 
-    .LeadSubtitle {
-      font-size: 17px;
-      color: #475569;
-      line-height: 1.6;
+    .Card-Subtitle {
+      color: #64748B;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
     }
 
-    .LeadMeta {
-      display: flex;
+    /* Wide Headline Card */
+    .Card-Wide {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 36px;
       align-items: center;
-      gap: 16px;
-      margin-top: 8px;
-      font-size: 13px;
-      color: #64748B;
-      font-weight: 600;
+    }
+
+    .Card-Wide .DocThumbnail,
+    .Card-Wide .Card-Image {
+      height: 280px;
+    }
+
+    .Card-Wide .Card-Title {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    .Card-Wide .Card-Subtitle {
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     /* News Reports Section */
@@ -244,83 +244,27 @@
       margin-bottom: 32px;
     }
 
-    /* Responsive Grid for Reports */
     .ReportsGrid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-    }
-
-    .ReportCard {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .ReportCard:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .ReportCardImage {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .ReportCardDocThumb {
-      height: 220px;
-      background: #F8FAFC;
-      border-bottom: 1px solid #E2E8F0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .ReportCardContent {
-      padding: 24px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex-grow: 1;
-    }
-
-    .ReportCardTag {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: #2563EB;
-    }
-
-    .ReportCardTitle {
-      font-size: 20px;
-      font-weight: 800;
-      color: #0F172A;
-      line-height: 1.3;
-    }
-
-    .ReportCardDesc {
-      font-size: 14px;
-      color: #64748B;
-      line-height: 1.5;
     }
 
     /* Responsive Breakpoints */
     @media (max-width: 1024px) {
-      .LeadHeroCard {
+      .Card-Wide {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
+      }
+      .Card-Wide .DocThumbnail,
+      .Card-Wide .Card-Image {
+        height: 240px;
+      }
+      .Card-Wide .Card-Title {
+        font-size: 28px;
+      }
+      .ReportsGrid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -341,17 +285,18 @@
       .HeadlinesToday {
         font-size: 38px;
       }
-      .LeadHeroCard {
-        padding: 20px;
-      }
-      .LeadTitle {
-        font-size: 26px;
-      }
       .ReportsHeading {
         font-size: 30px;
       }
       .ReportsGrid {
         grid-template-columns: 1fr;
+      }
+      .Card-Wide .Card-Title {
+        font-size: 24px;
+      }
+      .Card-Image,
+      .DocThumbnail {
+        height: 200px;
       }
     }
   </style>
@@ -368,12 +313,12 @@
       </nav>
     </header>
 
-    <!-- Top Section: Lead Headline Today -->
+    <!-- Top Section: Headlines Today -->
     <section class="HeadlinesContainer">
       <h1 class="HeadlinesToday">HEADLINES TODAY</h1>
 
-      <!-- Single Lead Hero Story: LAWSUIT002 -->
-      <a href="Reports/LAWSUIT002/" class="LeadHeroCard">
+      <!-- Wide Lead Headline: LAWSUIT002 -->
+      <a href="Reports/LAWSUIT002/" class="Card Card-Wide">
         <div class="DocThumbnail">
           <div class="DocThumbnailHeader">District Court of Nevada &bull; Summons</div>
           <div class="DocThumbnailTitle">SUMMONS IN A CIVIL ACTION: CASE NO. 26-CV-0517</div>
@@ -387,85 +332,72 @@
             <span>Oct 2, 2026</span>
           </div>
         </div>
-
-        <div class="LeadHeroContent">
-          <span class="LeadTag">Breaking &bull; Legal Summons</span>
-          <h2 class="LeadTitle">Official Court Summons Served: Channel Six News Corp. v. Pyrowh Corp & NBTF</h2>
-          <p class="LeadSubtitle">
-            The U.S. District Court for the District of Nevada has issued a formal summons requiring Pyrowh Corporation and NBTF administration to respond within 21 days concerning human rights violations and dangerous facility conditions.
-          </p>
-          <div class="LeadMeta">
-            <span>Civil Action No. 26-CV-0517</span>
-            <span>&bull;</span>
-            <span>By BushDev</span>
-          </div>
+        <div class="Card-Text">
+          <h2 class="Card-Title">Official Court Summons Served: Channel Six News Corp. v. Pyrowh Corp &amp; NBTF</h2>
+          <p class="Card-Subtitle">The U.S. District Court for the District of Nevada has issued a formal summons requiring Pyrowh Corporation and NBTF administration to respond within 21 days concerning human rights violations and dangerous facility conditions.</p>
         </div>
       </a>
     </section>
 
-    <!-- Lower Section: News Reports (Remaining 5 stories) -->
+    <!-- Lower Section: News Reports -->
     <section class="ReportsSection">
       <h2 class="ReportsHeading">NEWS REPORTS</h2>
 
       <div class="ReportsGrid">
         <!-- 1. LAWSUIT001 -->
-        <a href="Reports/LAWSUIT001/" class="ReportCard">
-          <div class="ReportCardDocThumb">
+        <a href="Reports/LAWSUIT001/" class="Card">
+          <div class="DocThumbnail">
             <div class="DocThumbnailHeader">Channel Six News Corp. &bull; Legal</div>
-            <div class="DocThumbnailTitle" style="font-size: 14px;">LETTER OF INTENT TO SUE: PYROWH CORP / NBTF</div>
+            <div class="DocThumbnailTitle">LETTER OF INTENT TO SUE: PYROWH CORP / NBTF</div>
             <div class="DocThumbnailLines">
-              <div class="DocThumbnailLine" style="width: 90%;"></div>
-              <div class="DocThumbnailLine" style="width: 75%;"></div>
+              <div class="DocThumbnailLine" style="width: 85%;"></div>
+              <div class="DocThumbnailLine" style="width: 100%;"></div>
+              <div class="DocThumbnailLine" style="width: 70%;"></div>
             </div>
             <div class="DocThumbnailFooter">
-              <span>Demand: $5,000,000</span>
+              <span>Demand: $5,000,000 USD</span>
               <span>Sept 30, 2026</span>
             </div>
           </div>
-          <div class="ReportCardContent">
-            <span class="ReportCardTag">Legal Notice</span>
-            <h3 class="ReportCardTitle">Notice of Intent to Initiate Legal Proceedings</h3>
-            <p class="ReportCardDesc">Channel Six News Corp. formally demands compensation over NBTF facility human rights concerns.</p>
+          <div class="Card-Text">
+            <h2 class="Card-Title">Notice of Intent to Initiate Legal Proceedings</h2>
+            <p class="Card-Subtitle">Channel Six News Corp. formally demands compensation over NBTF facility human rights concerns.</p>
           </div>
         </a>
 
         <!-- 2. Interview 003: Special Task Force -->
-        <a href="Reports/interview003/" class="ReportCard">
-          <img class="ReportCardImage" src="Reports/interview003/interview003.png" alt="STF [REDACTED] Interview" />
-          <div class="ReportCardContent">
-            <span class="ReportCardTag">Interview</span>
-            <h3 class="ReportCardTitle">An interview with the NBTF: STF [REDACTED]</h3>
-            <p class="ReportCardDesc">Special Task Force operative on core defense, raids, and radiation safety.</p>
+        <a href="Reports/interview003/" class="Card">
+          <img class="Card-Image" src="Reports/interview003/interview003.png" alt="STF [REDACTED] Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the NBTF: STF [REDACTED]</h2>
+            <p class="Card-Subtitle">Special Task Force operative on core defense, raids, and radiation safety.</p>
           </div>
         </a>
 
         <!-- 3. Interview 002: Facility Director -->
-        <a href="Reports/interview002/" class="ReportCard">
-          <img class="ReportCardImage" src="Reports/interview002/interview002.png" alt="Facility Director Interview" />
-          <div class="ReportCardContent">
-            <span class="ReportCardTag">Interview</span>
-            <h3 class="ReportCardTitle">An interview with the NBTF: Their story</h3>
-            <p class="ReportCardDesc">The Facility Director speaks on peace, public perception, and continuing research.</p>
+        <a href="Reports/interview002/" class="Card">
+          <img class="Card-Image" src="Reports/interview002/interview002.png" alt="Facility Director Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the NBTF: Their story</h2>
+            <p class="Card-Subtitle">The Facility Director speaks on peace, public perception, and continuing research.</p>
           </div>
         </a>
 
         <!-- 4. Interview 001: The Rebellion -->
-        <a href="Reports/interview001/" class="ReportCard">
-          <img class="ReportCardImage" src="Reports/interview001/interview_001.png" alt="Rebellion Interview" />
-          <div class="ReportCardContent">
-            <span class="ReportCardTag">Interview</span>
-            <h3 class="ReportCardTitle">An interview with the rebellion: are they that bad?</h3>
-            <p class="ReportCardDesc">Channel Six News spoke with Maximus about origins and motives.</p>
+        <a href="Reports/interview001/" class="Card">
+          <img class="Card-Image" src="Reports/interview001/interview_001.png" alt="Rebellion Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the rebellion: are they that bad?</h2>
+            <p class="Card-Subtitle">Channel Six News spoke with Maximus about origins and motives.</p>
           </div>
         </a>
 
         <!-- 5. Protester 001: Field Report -->
-        <a href="Reports/Protester001/" class="ReportCard">
-          <img class="ReportCardImage" src="card2.png" alt="Protesters raid and annex NBTF" />
-          <div class="ReportCardContent">
-            <span class="ReportCardTag">Field Report</span>
-            <h3 class="ReportCardTitle">Protesters raid and annex NBTF</h3>
-            <p class="ReportCardDesc">A story of how a group of protesters raided the NBTF facility.</p>
+        <a href="Reports/Protester001/" class="Card">
+          <img class="Card-Image" src="card2.png" alt="Protesters raid and annex NBTF" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">Protesters raid and annex NBTF</h2>
+            <p class="Card-Subtitle">A story of how a group of protesters raided the NBTF facility.</p>
           </div>
         </a>
       </div>
