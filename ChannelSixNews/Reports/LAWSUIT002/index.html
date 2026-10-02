@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LAWSUIT002: Summons in a Civil Action - Channel Six News</title>
 
   <!-- Discord & Open Graph / Facebook -->
-  <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/LAWSUIT002/"/>
-  <meta property="og:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF"/>
-  <meta property="og:description" content="In the United States District Court for the District of Nevada: Summons in a Civil Action filed against Pyrowh Corporation and the Nuclear Bomb Testing Facility."/>
-  <meta name="theme-color" content="#2563EB"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/LAWSUIT002/" />
+  <meta property="og:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF" />
+  <meta property="og:description" content="Official court summons issued in Civil Action No. 26-CV-0517 against Pyrowh Corporation and the Nuclear Bomb Testing Facility." />
+  <meta name="theme-color" content="#2563EB" />
 
   <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF"/>
-  <meta name="twitter:description" content="Official court summons issued in Civil Action No. 26-CV-0517 against Pyrowh Corporation and NBTF."/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF" />
+  <meta name="twitter:description" content="Official court summons issued in Civil Action No. 26-CV-0517 against Pyrowh Corporation and the Nuclear Bomb Testing Facility." />
 
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
   <!-- Supabase JS Client -->
@@ -132,7 +132,7 @@
     }
 
     .Topic {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: #0F172A;
       text-transform: uppercase;
@@ -140,244 +140,163 @@
     }
 
     .Headline {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 800;
-      line-height: 1.25;
+      line-height: 1.2;
       color: #0F172A;
       letter-spacing: -0.5px;
     }
 
-    /* Formal Court Document Sheet */
-    .CourtDoc {
+    /* Formal Legal Document Sheet matching LAWSUIT001 */
+    .LegalDoc {
       background: #FFFFFF;
       border: 1px solid #CBD5E1;
       border-radius: 12px;
-      padding: 48px 52px;
+      padding: 48px 48px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      line-height: 1.7;
-      font-size: 15px;
+      line-height: 1.75;
+      font-size: 16px;
       color: #1E293B;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
 
-    .CourtHeader {
+    .DocHeader {
       text-align: center;
       border-bottom: 2px solid #0F172A;
-      padding-bottom: 16px;
-    }
-
-    .CourtName {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      color: #0F172A;
-      text-transform: uppercase;
-    }
-
-    .CourtDistrict {
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #1E293B;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    .DocDisclaimer {
-      font-size: 13px;
-      color: #64748B;
-      font-style: italic;
-      margin-top: 6px;
-    }
-
-    /* Legal Caption Block */
-    .CaptionBox {
-      border: 1px solid #CBD5E1;
-      border-radius: 6px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 16px 20px;
-      gap: 16px;
-      background: #F8FAFC;
-    }
-
-    .CaptionParty {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .CaptionParty strong {
-      color: #0F172A;
-      font-size: 15px;
-    }
-
-    .CaptionParty .Role {
-      font-size: 13px;
-      font-weight: 600;
-      color: #64748B;
-      text-transform: uppercase;
-      margin-top: 2px;
+      padding-bottom: 20px;
       margin-bottom: 8px;
     }
 
-    .CaptionDetails {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-left: 1px solid #E2E8F0;
-      padding-left: 20px;
-      font-size: 14px;
-    }
-
-    .CaseNumber {
-      font-weight: 800;
-      font-size: 16px;
-      color: #0F172A;
-    }
-
-    .SummonsTitle {
-      font-size: 22px;
+    .DocTitle {
+      font-size: 24px;
       font-weight: 900;
+      letter-spacing: 1.5px;
       color: #0F172A;
-      text-align: center;
-      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 8px 0;
-      border-top: 1px solid #E2E8F0;
-      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .DocSubtitle {
+      font-size: 14px;
+      color: #64748B;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
     }
 
     .AddressBlock {
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.5;
       color: #334155;
     }
 
     .AddressBlock strong {
       color: #0F172A;
       display: block;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .DocSubject {
+      font-weight: 800;
+      font-size: 17px;
+      color: #0F172A;
+      padding: 12px 0;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
     }
 
     .DocParagraph {
       text-align: justify;
       color: #334155;
-      font-size: 15px;
     }
 
-    /* Administrative box */
-    .AdminBox {
-      background: #F1F5F9;
-      border: 1px dashed #94A3B8;
-      border-radius: 8px;
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
-      color: #334155;
+    .DocSignature {
+      margin-top: 24px;
+      line-height: 1.5;
     }
 
-    .AdminBoxHeader {
-      font-weight: 800;
-      font-size: 13px;
+    .DocSignature strong {
       color: #0F172A;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid #CBD5E1;
-      padding-bottom: 6px;
-    }
-
-    .AdminGrid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px 16px;
-    }
-
-    /* Clerk block & seal */
-    .ClerkSection {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      padding-top: 16px;
-      border-top: 1px solid #E2E8F0;
-    }
-
-    .ClerkInfo strong {
-      color: #0F172A;
-      font-size: 16px;
+      font-size: 18px;
       display: block;
-    }
-
-    .SealPlaceholder {
-      border: 2px dashed #CBD5E1;
-      border-radius: 8px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #64748B;
-      font-weight: 600;
-    }
-
-    .SealTitle {
-      font-size: 13px;
-      font-weight: 800;
-      color: #0F172A;
-      text-transform: uppercase;
+      margin-top: 8px;
     }
 
     /* Comments Section */
     .CommentsSection {
-      margin-top: 24px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 2px solid #E2E8F0;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    .CommentsHeader {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
+    .CommentsTitle {
       font-size: 24px;
       font-weight: 800;
       color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .CommentsCount {
-      font-size: 16px;
+      font-size: 20px;
+      font-weight: 600;
       color: #64748B;
-      font-weight: 500;
     }
 
-    .CommentFormCard {
+    .CommentBox {
       background: #FFFFFF;
       border: 1px solid #CBD5E1;
       border-radius: 12px;
       padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .CommentHeader {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .PostingAs {
+      font-size: 14px;
+      color: #64748B;
+    }
+
+    .PostingAs strong {
+      color: #0F172A;
+    }
+
+    .SignOutBtn {
+      background: none;
+      border: none;
+      color: #EF4444;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .SignOutBtn:hover {
+      text-decoration: underline;
     }
 
     .CommentTextarea {
       width: 100%;
-      min-height: 90px;
-      padding: 12px 14px;
+      min-height: 100px;
       border: 1px solid #CBD5E1;
       border-radius: 8px;
+      padding: 12px 14px;
       font-family: inherit;
       font-size: 14px;
       resize: vertical;
       outline: none;
+      transition: border-color 0.2s;
     }
 
     .CommentTextarea:focus {
@@ -387,27 +306,23 @@
     .CommentSubmitRow {
       display: flex;
       justify-content: flex-end;
+      margin-top: 12px;
     }
 
     .CommentSubmitBtn {
       background: #2563EB;
       color: white;
       border: none;
+      padding: 10px 24px;
       border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 14px;
       font-weight: 600;
+      font-size: 14px;
       cursor: pointer;
       transition: background 0.2s;
     }
 
     .CommentSubmitBtn:hover {
       background: #1D4ED8;
-    }
-
-    .CommentSubmitBtn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
     }
 
     .SignInPrompt {
@@ -426,13 +341,17 @@
       text-decoration: none;
     }
 
+    .SignInPrompt a:hover {
+      text-decoration: underline;
+    }
+
     .CommentsList {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
-    .CommentCard {
+    .CommentItem {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
       border-radius: 10px;
@@ -442,17 +361,21 @@
       gap: 6px;
     }
 
-    .CommentAuthor {
-      font-weight: 700;
-      font-size: 14px;
-      color: #0F172A;
+    .CommentMeta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .CommentDate {
+    .CommentAuthor {
+      font-weight: 700;
+      color: #0F172A;
+      font-size: 14px;
+    }
+
+    .CommentTime {
       font-size: 12px;
       color: #94A3B8;
-      margin-left: 8px;
-      font-weight: normal;
     }
 
     .CommentBody {
@@ -460,6 +383,7 @@
       color: #334155;
       line-height: 1.5;
       white-space: pre-wrap;
+      word-break: break-word;
     }
 
     @media (max-width: 768px) {
@@ -475,23 +399,11 @@
       .ArticleContainer {
         padding: 32px 16px 64px;
       }
-      .CourtDoc {
+      .LegalDoc {
         padding: 28px 20px;
       }
-      .CaptionBox {
-        grid-template-columns: 1fr;
-      }
-      .CaptionDetails {
-        border-left: none;
-        border-top: 1px solid #E2E8F0;
-        padding-left: 0;
-        padding-top: 12px;
-      }
-      .AdminGrid {
-        grid-template-columns: 1fr;
-      }
-      .ClerkSection {
-        grid-template-columns: 1fr;
+      .Headline {
+        font-size: 28px;
       }
     }
   </style>
@@ -522,38 +434,35 @@
       </button>
     </div>
 
-    <!-- Official Court Document Sheet -->
-    <article class="CourtDoc">
-      <div class="CourtHeader">
-        <div class="CourtName">IN THE UNITED STATES DISTRICT COURT</div>
-        <div class="CourtDistrict">FOR THE DISTRICT OF NEVADA</div>
-        <div class="DocDisclaimer">Fictional / In-Universe Document</div>
+    <!-- Exact LAWSUIT001 Legal Sheet Layout -->
+    <article class="LegalDoc">
+      <div class="DocHeader">
+        <div class="DocTitle">IN THE UNITED STATES DISTRICT COURT FOR THE DISTRICT OF NEVADA</div>
+        <div class="DocSubtitle">Fictional / In-Universe Document &bull; Civil Action No. 26-CV-0517</div>
       </div>
 
-      <!-- Caption Box -->
-      <div class="CaptionBox">
-        <div class="CaptionParty">
-          <strong>CHANNEL SIX NEWS CORP.</strong>
-          <span class="Role">Plaintiff,</span>
-          <span style="font-weight: 700; color: #64748B;">v.</span>
-          <strong>PYROWH CORPORATION</strong>
-          <strong>NUCLEAR BOMB TESTING FACILITY (NBTF)</strong>
-          <span class="Role">Defendants.</span>
-        </div>
-        <div class="CaptionDetails">
-          <div class="CaseNumber">Civil Action No. 26-CV-0517</div>
-        </div>
+      <div class="AddressBlock">
+        <strong>CHANNEL SIX NEWS CORP.</strong>
+        <em>Plaintiff,</em><br>
+        <br>
+        <strong>v.</strong><br>
+        <br>
+        <strong>PYROWH CORPORATION</strong><br>
+        <strong>NUCLEAR BOMB TESTING FACILITY (NBTF)</strong><br>
+        <em>Defendants.</em>
       </div>
 
-      <div class="SummonsTitle">SUMMONS IN A CIVIL ACTION</div>
+      <div class="DocSubject">
+        SUMMONS IN A CIVIL ACTION
+      </div>
 
       <div class="AddressBlock">
         <strong>TO:</strong>
-        Pyrowh Corporation<br/>
-        Nuclear Bomb Testing Facility (NBTF)<br/>
-        1 Nuclear Research Access Road<br/>
-        Facility Sector 01<br/>
-        Black Mesa Desert, Nevada 89019<br/>
+        Pyrowh Corporation<br>
+        Nuclear Bomb Testing Facility (NBTF)<br>
+        1 Nuclear Research Access Road<br>
+        Facility Sector 01<br>
+        Black Mesa Desert, Nevada 89019<br>
         United States
       </div>
 
@@ -577,61 +486,51 @@
         If you fail to respond, judgment by default may be entered against you for the relief demanded in the complaint.
       </p>
 
-      <div class="AddressBlock" style="margin-top: 8px;">
-        <strong>PLAINTIFF</strong>
-        Channel Six News Corp.<br/>
-        1427 Channel Six Road<br/>
-        Black Mesa Desert, Nevada 89019<br/>
-        United States<br/><br/>
-        Representative:<br/>
-        <strong>BushDev</strong>
-        News Executive<br/>
+      <div class="AddressBlock">
+        <strong>PLAINTIFF:</strong>
+        Channel Six News Corp.<br>
+        1427 Channel Six Road<br>
+        Black Mesa Desert, Nevada 89019<br>
+        United States<br>
+        <br>
+        Representative:<br>
+        <strong>BushDev</strong><br>
+        News Executive<br>
         Channel Six News Corp.
       </div>
 
-      <!-- Court Administration Use Only -->
-      <div class="AdminBox">
-        <div class="AdminBoxHeader">COURT ADMINISTRATION USE ONLY</div>
-        <div class="AdminGrid">
-          <div><strong>Document Classification:</strong> CIVIL — SUMMONS</div>
-          <div><strong>Filing Division:</strong> District Division 04</div>
-          <div><strong>Processing Code:</strong> NV-CIV-26</div>
-          <div><strong>Case Status:</strong> PENDING</div>
-          <div><strong>Record Reference:</strong> NV-0517-26-C6</div>
-          <div><strong>Document Version:</strong> 1.0</div>
-          <div><strong>Date:</strong> 10/2/26</div>
-        </div>
+      <div class="AddressBlock" style="border-top: 1px solid #E2E8F0; padding-top: 16px;">
+        <strong>COURT ADMINISTRATION USE ONLY</strong><br>
+        Document Classification: CIVIL — SUMMONS<br>
+        Filing Division: District Division 04<br>
+        Processing Code: NV-CIV-26<br>
+        Case Status: PENDING<br>
+        Record Reference: NV-0517-26-C6<br>
+        Document Version: 1.0<br>
+        Date: 10/2/26
       </div>
 
-      <!-- Clerk Section -->
-      <div class="ClerkSection">
-        <div class="ClerkInfo">
-          <div style="font-size: 13px; font-weight: 800; color: #64748B; text-transform: uppercase;">CLERK OF COURT</div>
-          <strong style="margin-top: 4px;">RyanBlaze</strong>
-          <span style="font-size: 14px; color: #64748B;">Clerk of Court</span>
-          <div style="margin-top: 14px; font-size: 13px; color: #64748B;">
-            Signature of Clerk or Deputy Clerk:
-          </div>
-        </div>
-
-        <div class="SealPlaceholder">
-          <div class="SealTitle">Official Court Seal</div>
-          <div>UNITED STATES DISTRICT COURT — DISTRICT OF NEVADA</div>
-          <div style="font-size: 11px; color: #94A3B8; margin-top: 4px;">Filing Reference: NV-0517-26-C6</div>
-        </div>
+      <div class="DocSignature">
+        CLERK OF COURT<br>
+        <strong>RyanBlaze</strong>
+        Clerk of Court<br>
+        <br>
+        Signature of Clerk or Deputy Clerk:<br>
+        <br>
+        Official Court Seal:<br>
+        UNITED STATES DISTRICT COURT — DISTRICT OF NEVADA<br>
+        Filing Reference: NV-0517-26-C6
       </div>
     </article>
 
-    <!-- Comments Section -->
+    <!-- Comments Section matching LAWSUIT001 -->
     <section class="CommentsSection">
-      <div class="CommentsHeader">
-        <span>Reader Comments</span>
+      <div class="CommentsTitle">
+        Reader Comments
         <span class="CommentsCount" id="commentsCountLabel">(0)</span>
       </div>
 
-      <div id="commentAuthContainer">
-        <!-- Injected dynamically: either comment box or sign-in prompt -->
-      </div>
+      <div id="commentBoxContainer"></div>
 
       <div class="CommentsList" id="commentsList">
         <p style="color: #64748B; font-size: 14px;">Loading comments...</p>
@@ -646,47 +545,31 @@
     const REPORT_SLUG = "LAWSUIT002";
 
     let currentUser = null;
-    let currentProfile = null;
-    let userReaction = null; // true, false, or null
+    let userReaction = null;
 
     async function init() {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         currentUser = session.user;
-        await fetchProfile();
       }
-      renderAuthForm();
+      renderCommentBox();
       loadReactions();
       loadComments();
     }
 
-    async function fetchProfile() {
-      if (!currentUser) return;
-      const { data } = await supabase
-        .from('c6_profiles')
-        .select('*')
-        .eq('id', currentUser.id)
-        .single();
-      
-      if (data) {
-        currentProfile = data;
-      } else {
-        const fallbackName = currentUser.user_metadata?.username || currentUser.email?.split('@')[0] || "BushDev";
-        currentProfile = { id: currentUser.id, username: fallbackName };
-        await supabase.from('c6_profiles').upsert(currentProfile);
-      }
-    }
-
-    function renderAuthForm() {
-      const container = document.getElementById('commentAuthContainer');
+    function renderCommentBox() {
+      const container = document.getElementById("commentBoxContainer");
       if (currentUser) {
-        const username = currentProfile?.username || currentUser.email?.split('@')[0] || "Reader";
+        const username = currentUser.user_metadata?.username || currentUser.email?.split('@')[0] || "BushDev";
         container.innerHTML = `
-          <div class="CommentFormCard">
-            <div style="font-size: 13px; color: #64748B;">Posting as <strong style="color: #0F172A;">${escapeHTML(username)}</strong></div>
-            <textarea class="CommentTextarea" id="commentInput" placeholder="Join the discussion..."></textarea>
+          <div class="CommentBox">
+            <div class="CommentHeader">
+              <span class="PostingAs">Posting as <strong>${escapeHTML(username)}</strong></span>
+              <button class="SignOutBtn" onclick="signOut()">Sign out</button>
+            </div>
+            <textarea id="commentInput" class="CommentTextarea" placeholder="Write a comment..."></textarea>
             <div class="CommentSubmitRow">
-              <button class="CommentSubmitBtn" id="submitCommentBtn" onclick="submitComment()">Post Comment</button>
+              <button class="CommentSubmitBtn" id="submitBtn" onclick="submitComment()">Post Comment</button>
             </div>
           </div>
         `;
@@ -700,28 +583,27 @@
     }
 
     async function loadReactions() {
-      const { data: reactions } = await supabase
+      const { data, error } = await supabase
         .from('c6_reactions')
         .select('is_like, user_id')
         .eq('report_slug', REPORT_SLUG);
+
+      if (error) return;
 
       let likes = 0;
       let dislikes = 0;
       userReaction = null;
 
-      if (reactions) {
-        reactions.forEach(r => {
-          if (r.is_like) likes++;
-          else dislikes++;
-          if (currentUser && r.user_id === currentUser.id) {
-            userReaction = r.is_like;
-          }
-        });
-      }
+      data.forEach(r => {
+        if (r.is_like) likes++;
+        else dislikes++;
+        if (currentUser && r.user_id === currentUser.id) {
+          userReaction = r.is_like;
+        }
+      });
 
       document.getElementById('likeCount').textContent = likes;
       document.getElementById('dislikeCount').textContent = dislikes;
-
       document.getElementById('likeBtn').classList.toggle('active', userReaction === true);
       document.getElementById('dislikeBtn').classList.toggle('active', userReaction === false);
     }
@@ -754,7 +636,7 @@
     }
 
     async function loadComments() {
-      const { data: comments, error } = await supabase
+      const { data, error } = await supabase
         .from('c6_comments')
         .select('id, content, created_at, user_id, c6_profiles(username)')
         .eq('report_slug', REPORT_SLUG)
@@ -763,27 +645,28 @@
       const list = document.getElementById('commentsList');
       const countLabel = document.getElementById('commentsCountLabel');
 
-      if (error || !comments) {
-        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">No comments yet.</p>`;
-        countLabel.textContent = `(0)`;
+      if (error || !data) {
+        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">Error loading comments.</p>`;
         return;
       }
 
-      countLabel.textContent = `(${comments.length})`;
+      countLabel.textContent = `(${data.length})`;
 
-      if (comments.length === 0) {
-        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">Be the first to leave a comment!</p>`;
+      if (data.length === 0) {
+        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">No comments yet. Be the first to reply!</p>`;
         return;
       }
 
-      list.innerHTML = comments.map(c => {
+      list.innerHTML = data.map(c => {
         const username = c.c6_profiles?.username || "Reader";
-        const dateStr = new Date(c.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+        const dateStr = new Date(c.created_at).toLocaleDateString(undefined, {
+          month: 'short', day: 'numeric', year: 'numeric'
+        });
         return `
-          <div class="CommentCard">
-            <div class="CommentAuthor">
-              ${escapeHTML(username)}
-              <span class="CommentDate">${escapeHTML(dateStr)}</span>
+          <div class="CommentItem">
+            <div class="CommentMeta">
+              <span class="CommentAuthor">${escapeHTML(username)}</span>
+              <span class="CommentTime">${escapeHTML(dateStr)}</span>
             </div>
             <div class="CommentBody">${escapeHTML(c.content)}</div>
           </div>
@@ -793,26 +676,35 @@
 
     async function submitComment() {
       const input = document.getElementById('commentInput');
-      const btn = document.getElementById('submitCommentBtn');
-      const content = input.value.trim();
-      if (!content || !currentUser) return;
+      const btn = document.getElementById('submitBtn');
+      const text = input.value.trim();
+      if (!text || !currentUser) return;
 
       btn.disabled = true;
+
       const { error } = await supabase
         .from('c6_comments')
         .insert({
           report_slug: REPORT_SLUG,
           user_id: currentUser.id,
-          content: content
+          content: text
         });
 
       btn.disabled = false;
+
       if (!error) {
-        input.value = '';
+        input.value = "";
         loadComments();
       } else {
         alert("Failed to post comment. Please try again.");
       }
+    }
+
+    async function signOut() {
+      await supabase.auth.signOut();
+      currentUser = null;
+      renderCommentBox();
+      loadReactions();
     }
 
     function escapeHTML(str) {
