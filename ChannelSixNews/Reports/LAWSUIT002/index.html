@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LAWSUIT002: Summons in a Civil Action - Channel Six News</title>
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/Reports/LAWSUIT002/"/>
+  <meta property="og:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF"/>
+  <meta property="og:description" content="In the United States District Court for the District of Nevada: Summons in a Civil Action filed against Pyrowh Corporation and the Nuclear Bomb Testing Facility."/>
+  <meta name="theme-color" content="#2563EB"/>
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="LAWSUIT002: Summons in a Civil Action — Channel Six News Corp. v. Pyrowh Corp & NBTF"/>
+  <meta name="twitter:description" content="Official court summons issued in Civil Action No. 26-CV-0517 against Pyrowh Corporation and NBTF."/>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F9FA;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Full-width header matching index.html */
+    .Header1 {
+      width: 100%;
+      padding: 24px 64px;
+      background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ChannelSix {
+      color: white;
+      font-size: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .Nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .Nav a {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .Nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Article layout */
+    .ArticleContainer {
+      width: 100%;
+      max-width: 900px;
+      padding: 48px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Reactions Bar */
+    .ReactionsBar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 0 12px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .ReactionBtn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4B5563;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .ReactionBtn:hover {
+      border-color: #CBD5E1;
+      background: #F1F5F9;
+    }
+
+    .ReactionBtn.active {
+      background: #EFF6FF;
+      border-color: #2563EB;
+      color: #2563EB;
+    }
+
+    .ReactionBtn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .Topic {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .Headline {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+
+    /* Formal Court Document Sheet */
+    .CourtDoc {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 48px 52px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      line-height: 1.7;
+      font-size: 15px;
+      color: #1E293B;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .CourtHeader {
+      text-align: center;
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 16px;
+    }
+
+    .CourtName {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      color: #0F172A;
+      text-transform: uppercase;
+    }
+
+    .CourtDistrict {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #1E293B;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .DocDisclaimer {
+      font-size: 13px;
+      color: #64748B;
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* Legal Caption Block */
+    .CaptionBox {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 16px 20px;
+      gap: 16px;
+      background: #F8FAFC;
+    }
+
+    .CaptionParty {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .CaptionParty strong {
+      color: #0F172A;
+      font-size: 15px;
+    }
+
+    .CaptionParty .Role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748B;
+      text-transform: uppercase;
+      margin-top: 2px;
+      margin-bottom: 8px;
+    }
+
+    .CaptionDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid #E2E8F0;
+      padding-left: 20px;
+      font-size: 14px;
+    }
+
+    .CaseNumber {
+      font-weight: 800;
+      font-size: 16px;
+      color: #0F172A;
+    }
+
+    .SummonsTitle {
+      font-size: 22px;
+      font-weight: 900;
+      color: #0F172A;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .AddressBlock {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    .AddressBlock strong {
+      color: #0F172A;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .DocParagraph {
+      text-align: justify;
+      color: #334155;
+      font-size: 15px;
+    }
+
+    /* Administrative box */
+    .AdminBox {
+      background: #F1F5F9;
+      border: 1px dashed #94A3B8;
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #334155;
+    }
+
+    .AdminBoxHeader {
+      font-weight: 800;
+      font-size: 13px;
+      color: #0F172A;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #CBD5E1;
+      padding-bottom: 6px;
+    }
+
+    .AdminGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 16px;
+    }
+
+    /* Clerk block & seal */
+    .ClerkSection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .ClerkInfo strong {
+      color: #0F172A;
+      font-size: 16px;
+      display: block;
+    }
+
+    .SealPlaceholder {
+      border: 2px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #64748B;
+      font-weight: 600;
+    }
+
+    .SealTitle {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0F172A;
+      text-transform: uppercase;
+    }
+
+    /* Comments Section */
+    .CommentsSection {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .CommentsHeader {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+
+    .CommentsCount {
+      font-size: 16px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .CommentFormCard {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .CommentTextarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 12px 14px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .CommentTextarea:focus {
+      border-color: #2563EB;
+    }
+
+    .CommentSubmitRow {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .CommentSubmitBtn {
+      background: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .CommentSubmitBtn:hover {
+      background: #1D4ED8;
+    }
+
+    .CommentSubmitBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .SignInPrompt {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      color: #64748B;
+      font-size: 15px;
+    }
+
+    .SignInPrompt a {
+      color: #2563EB;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .CommentsList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .CommentCard {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .CommentAuthor {
+      font-weight: 700;
+      font-size: 14px;
+      color: #0F172A;
+    }
+
+    .CommentDate {
+      font-size: 12px;
+      color: #94A3B8;
+      margin-left: 8px;
+      font-weight: normal;
+    }
+
+    .CommentBody {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 768px) {
+      .Header1 {
+        padding: 20px 24px;
+      }
+      .ChannelSix {
+        font-size: 32px;
+      }
+      .Nav {
+        gap: 20px;
+      }
+      .ArticleContainer {
+        padding: 32px 16px 64px;
+      }
+      .CourtDoc {
+        padding: 28px 20px;
+      }
+      .CaptionBox {
+        grid-template-columns: 1fr;
+      }
+      .CaptionDetails {
+        border-left: none;
+        border-top: 1px solid #E2E8F0;
+        padding-left: 0;
+        padding-top: 12px;
+      }
+      .AdminGrid {
+        grid-template-columns: 1fr;
+      }
+      .ClerkSection {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="Header1">
+    <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+    <nav class="Nav">
+      <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
+      <a href="https://bush.is-a.dev/Contact/">Contact</a>
+      <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign In</a>
+    </nav>
+  </header>
+
+  <main class="ArticleContainer">
+    <div class="Topic">LEGAL FILING • OFFICIAL SUMMONS</div>
+    <h1 class="Headline">Summons in a Civil Action: Channel Six News Corp. v. Pyrowh Corporation & NBTF</h1>
+
+    <!-- Reactions Bar -->
+    <div class="ReactionsBar">
+      <button class="ReactionBtn" id="likeBtn" onclick="handleReaction(true)">
+        <svg viewBox="0 0 24 24"><path d="M2 20h2V8H2v12zm20-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L13.17 0 7.59 5.59C7.22 5.95 7 6.45 7 7v11c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+        <span id="likeCount">0</span>
+      </button>
+      <button class="ReactionBtn" id="dislikeBtn" onclick="handleReaction(false)">
+        <svg viewBox="0 0 24 24"><path d="M22 4h-2v12h2V4zm-20 11c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L8.83 24l5.58-5.59c.37-.36.59-.86.59-1.41V6c0-1.1-.9-2-2-2H4c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2z"/></svg>
+        <span id="dislikeCount">0</span>
+      </button>
+    </div>
+
+    <!-- Official Court Document Sheet -->
+    <article class="CourtDoc">
+      <div class="CourtHeader">
+        <div class="CourtName">IN THE UNITED STATES DISTRICT COURT</div>
+        <div class="CourtDistrict">FOR THE DISTRICT OF NEVADA</div>
+        <div class="DocDisclaimer">Fictional / In-Universe Document</div>
+      </div>
+
+      <!-- Caption Box -->
+      <div class="CaptionBox">
+        <div class="CaptionParty">
+          <strong>CHANNEL SIX NEWS CORP.</strong>
+          <span class="Role">Plaintiff,</span>
+          <span style="font-weight: 700; color: #64748B;">v.</span>
+          <strong>PYROWH CORPORATION</strong>
+          <strong>NUCLEAR BOMB TESTING FACILITY (NBTF)</strong>
+          <span class="Role">Defendants.</span>
+        </div>
+        <div class="CaptionDetails">
+          <div class="CaseNumber">Civil Action No. 26-CV-0517</div>
+        </div>
+      </div>
+
+      <div class="SummonsTitle">SUMMONS IN A CIVIL ACTION</div>
+
+      <div class="AddressBlock">
+        <strong>TO:</strong>
+        Pyrowh Corporation<br/>
+        Nuclear Bomb Testing Facility (NBTF)<br/>
+        1 Nuclear Research Access Road<br/>
+        Facility Sector 01<br/>
+        Black Mesa Desert, Nevada 89019<br/>
+        United States
+      </div>
+
+      <p class="DocParagraph">
+        A lawsuit has been filed against you by Channel Six News Corp.
+      </p>
+
+      <p class="DocParagraph">
+        The action concerns alleged violations of human rights involving rebels, civilians, and members of NBTF staff, including allegations concerning dangerous conditions and the treatment and safety of individuals within the Facility.
+      </p>
+
+      <p class="DocParagraph">
+        Channel Six News Corp. is seeking $5,000,000 USD in monetary compensation.
+      </p>
+
+      <p class="DocParagraph">
+        You are required to respond to the complaint within 21 days after service of this summons, not counting the day you receive it. Your response must be served upon the plaintiff or the plaintiff's representative and filed with the Court as required.
+      </p>
+
+      <p class="DocParagraph">
+        If you fail to respond, judgment by default may be entered against you for the relief demanded in the complaint.
+      </p>
+
+      <div class="AddressBlock" style="margin-top: 8px;">
+        <strong>PLAINTIFF</strong>
+        Channel Six News Corp.<br/>
+        1427 Channel Six Road<br/>
+        Black Mesa Desert, Nevada 89019<br/>
+        United States<br/><br/>
+        Representative:<br/>
+        <strong>BushDev</strong>
+        News Executive<br/>
+        Channel Six News Corp.
+      </div>
+
+      <!-- Court Administration Use Only -->
+      <div class="AdminBox">
+        <div class="AdminBoxHeader">COURT ADMINISTRATION USE ONLY</div>
+        <div class="AdminGrid">
+          <div><strong>Document Classification:</strong> CIVIL — SUMMONS</div>
+          <div><strong>Filing Division:</strong> District Division 04</div>
+          <div><strong>Processing Code:</strong> NV-CIV-26</div>
+          <div><strong>Case Status:</strong> PENDING</div>
+          <div><strong>Record Reference:</strong> NV-0517-26-C6</div>
+          <div><strong>Document Version:</strong> 1.0</div>
+          <div><strong>Date:</strong> 10/2/26</div>
+        </div>
+      </div>
+
+      <!-- Clerk Section -->
+      <div class="ClerkSection">
+        <div class="ClerkInfo">
+          <div style="font-size: 13px; font-weight: 800; color: #64748B; text-transform: uppercase;">CLERK OF COURT</div>
+          <strong style="margin-top: 4px;">RyanBlaze</strong>
+          <span style="font-size: 14px; color: #64748B;">Clerk of Court</span>
+          <div style="margin-top: 14px; font-size: 13px; color: #64748B;">
+            Signature of Clerk or Deputy Clerk:
+          </div>
+        </div>
+
+        <div class="SealPlaceholder">
+          <div class="SealTitle">Official Court Seal</div>
+          <div>UNITED STATES DISTRICT COURT — DISTRICT OF NEVADA</div>
+          <div style="font-size: 11px; color: #94A3B8; margin-top: 4px;">Filing Reference: NV-0517-26-C6</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Comments Section -->
+    <section class="CommentsSection">
+      <div class="CommentsHeader">
+        <span>Reader Comments</span>
+        <span class="CommentsCount" id="commentsCountLabel">(0)</span>
+      </div>
+
+      <div id="commentAuthContainer">
+        <!-- Injected dynamically: either comment box or sign-in prompt -->
+      </div>
+
+      <div class="CommentsList" id="commentsList">
+        <p style="color: #64748B; font-size: 14px;">Loading comments...</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const SUPABASE_URL = "https://bnkkitwvxdyywrxszedf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJua2tpdHd2eGR5eXdyeHN6ZWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MTAwMjksImV4cCI6MjA5OTM4NjAyOX0.SZrDrnHi0N_wErr2U3enY0Y97L2HHxzZSF0dhiWegwo";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const REPORT_SLUG = "LAWSUIT002";
+
+    let currentUser = null;
+    let currentProfile = null;
+    let userReaction = null; // true, false, or null
+
+    async function init() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        currentUser = session.user;
+        await fetchProfile();
+      }
+      renderAuthForm();
+      loadReactions();
+      loadComments();
+    }
+
+    async function fetchProfile() {
+      if (!currentUser) return;
+      const { data } = await supabase
+        .from('c6_profiles')
+        .select('*')
+        .eq('id', currentUser.id)
+        .single();
+      
+      if (data) {
+        currentProfile = data;
+      } else {
+        const fallbackName = currentUser.user_metadata?.username || currentUser.email?.split('@')[0] || "BushDev";
+        currentProfile = { id: currentUser.id, username: fallbackName };
+        await supabase.from('c6_profiles').upsert(currentProfile);
+      }
+    }
+
+    function renderAuthForm() {
+      const container = document.getElementById('commentAuthContainer');
+      if (currentUser) {
+        const username = currentProfile?.username || currentUser.email?.split('@')[0] || "Reader";
+        container.innerHTML = `
+          <div class="CommentFormCard">
+            <div style="font-size: 13px; color: #64748B;">Posting as <strong style="color: #0F172A;">${escapeHTML(username)}</strong></div>
+            <textarea class="CommentTextarea" id="commentInput" placeholder="Join the discussion..."></textarea>
+            <div class="CommentSubmitRow">
+              <button class="CommentSubmitBtn" id="submitCommentBtn" onclick="submitComment()">Post Comment</button>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="SignInPrompt">
+            Want to join the discussion? <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign in</a> to leave a comment.
+          </div>
+        `;
+      }
+    }
+
+    async function loadReactions() {
+      const { data: reactions } = await supabase
+        .from('c6_reactions')
+        .select('is_like, user_id')
+        .eq('report_slug', REPORT_SLUG);
+
+      let likes = 0;
+      let dislikes = 0;
+      userReaction = null;
+
+      if (reactions) {
+        reactions.forEach(r => {
+          if (r.is_like) likes++;
+          else dislikes++;
+          if (currentUser && r.user_id === currentUser.id) {
+            userReaction = r.is_like;
+          }
+        });
+      }
+
+      document.getElementById('likeCount').textContent = likes;
+      document.getElementById('dislikeCount').textContent = dislikes;
+
+      document.getElementById('likeBtn').classList.toggle('active', userReaction === true);
+      document.getElementById('dislikeBtn').classList.toggle('active', userReaction === false);
+    }
+
+    async function handleReaction(isLike) {
+      if (!currentUser) {
+        window.location.href = "https://bush.is-a.dev/ChannelSixNews/SignIn/";
+        return;
+      }
+
+      if (userReaction === isLike) {
+        await supabase
+          .from('c6_reactions')
+          .delete()
+          .eq('report_slug', REPORT_SLUG)
+          .eq('user_id', currentUser.id);
+        userReaction = null;
+      } else {
+        await supabase
+          .from('c6_reactions')
+          .upsert({
+            report_slug: REPORT_SLUG,
+            user_id: currentUser.id,
+            is_like: isLike,
+            updated_at: new Date().toISOString()
+          }, { onConflict: 'report_slug,user_id' });
+        userReaction = isLike;
+      }
+      loadReactions();
+    }
+
+    async function loadComments() {
+      const { data: comments, error } = await supabase
+        .from('c6_comments')
+        .select('id, content, created_at, user_id, c6_profiles(username)')
+        .eq('report_slug', REPORT_SLUG)
+        .order('created_at', { ascending: false });
+
+      const list = document.getElementById('commentsList');
+      const countLabel = document.getElementById('commentsCountLabel');
+
+      if (error || !comments) {
+        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">No comments yet.</p>`;
+        countLabel.textContent = `(0)`;
+        return;
+      }
+
+      countLabel.textContent = `(${comments.length})`;
+
+      if (comments.length === 0) {
+        list.innerHTML = `<p style="color: #64748B; font-size: 14px;">Be the first to leave a comment!</p>`;
+        return;
+      }
+
+      list.innerHTML = comments.map(c => {
+        const username = c.c6_profiles?.username || "Reader";
+        const dateStr = new Date(c.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+        return `
+          <div class="CommentCard">
+            <div class="CommentAuthor">
+              ${escapeHTML(username)}
+              <span class="CommentDate">${escapeHTML(dateStr)}</span>
+            </div>
+            <div class="CommentBody">${escapeHTML(c.content)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function submitComment() {
+      const input = document.getElementById('commentInput');
+      const btn = document.getElementById('submitCommentBtn');
+      const content = input.value.trim();
+      if (!content || !currentUser) return;
+
+      btn.disabled = true;
+      const { error } = await supabase
+        .from('c6_comments')
+        .insert({
+          report_slug: REPORT_SLUG,
+          user_id: currentUser.id,
+          content: content
+        });
+
+      btn.disabled = false;
+      if (!error) {
+        input.value = '';
+        loadComments();
+      } else {
+        alert("Failed to post comment. Please try again.");
+      }
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    init();
+  </script>
+</body>
+</html>
